@@ -29,7 +29,7 @@ class AuthController extends Controller
             $user->username = $request->input('username');
             $plainPassword = $request->input('password');
             $user->password = app('hash')->make($plainPassword);
-
+            $user->level = 6;
             $user->save();
 
             //return successful response
@@ -57,7 +57,7 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only(['username', 'password']);
-
+            
         if (! $token = Auth::attempt($credentials)) {
             return response()->json(['message' => 'Unauthorized'], 401);
         }

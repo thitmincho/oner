@@ -29,8 +29,8 @@ class UserController extends Controller
         //validate incoming request 
         $this->validate($request, [
             'fullname' => 'required|string',
-            'username' => 'required|unique:users',
-            'password' => 'required|confirmed',
+            // 'username' => 'required|unique:users',
+            // 'password' => 'required|confirmed',
             'level'    => 'required',
         ]);
 

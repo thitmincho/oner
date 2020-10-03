@@ -43,4 +43,11 @@ class Employee extends Model
         'created_user_login_id',
         'updated_user_login_id',
     ];
+
+    public function department(){
+        return $this->hasOne("App\Department",'id','department_id');
+    }
+    public function position(){
+        return $this->hasOne("App\Position",'id','position_id');
+    }
 }

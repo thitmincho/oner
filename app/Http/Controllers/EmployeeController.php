@@ -1,22 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Department;
 use Illuminate\Http\Request;
 use App\Employee;
-use Illuminate\Support\Facades\Auth;
+use App\Position;
 
 class EmployeeController extends Controller
 {
     
     public function all()
     {
-        $employees = Employee::all();
-        return $this->respond('done', $employees);
+        $employees = Employee::with('department','position')->get()->all();
+        $departments = Department::all();
+        $positions = Position::all();
+
+        $response ['employees'] = $employees;
+        $response ['departments'] = $departments;
+        $response ['positions'] = $positions;
+        return $this->respond('done', $response);
     }
 
     public function get($id)
     {
-        $employee = Employee::find($id);
+        $employee = Employee::with('department','position')->find($id);
         if(is_null($employee)){
             return $this->respond('not_found'); 
         }   

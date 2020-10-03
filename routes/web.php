@@ -63,4 +63,15 @@ $router->group([
     $router->post('positions/{id}/update', 'PositionController@put');
     $router->post('positions/{id}/remove', 'PositionController@remove');
 
+    $router->post('doctors', 'DoctorController@all');
+    $router->post('doctors/add', 'DoctorController@add');
+    $router->post('doctors/{id}', 'DoctorController@get');
+    $router->post('doctors/{id}/update', 'DoctorController@put');
+    $router->post('doctors/{id}/remove', 'DoctorController@remove');
+
+    $router->post('patients', 'PatientController@all');
+    $router->post('patients/add', 'PatientController@add');
+    $router->post('patients/{id}', 'PatientController@get');
+    $router->post('patients/{id}/update', 'PatientController@put');
+    $router->post('patients/{id}/remove', 'PatientController@remove');
 });

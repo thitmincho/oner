@@ -29,6 +29,7 @@ class AuthController extends Controller
             $user->username = $request->input('username');
             $plainPassword = $request->input('password');
             $user->password = app('hash')->make($plainPassword);
+            $user->created_user_id = 0;
             $user->level = 6;
             $user->save();
 

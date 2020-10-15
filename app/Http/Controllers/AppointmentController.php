@@ -37,6 +37,7 @@ class AppointmentController extends Controller
 
         try {
             $appointment = $request->all();
+            
             Appointment::insert($appointment);
             //return successful response
             return $this->respond('created', $appointment);

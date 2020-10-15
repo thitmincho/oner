@@ -12,6 +12,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
     use Authenticatable, Authorizable;
+    // protected $table = 'user';
     const CREATED_AT = 'created_time';
     const UPDATED_AT = 'updated_time';
     /**

@@ -74,4 +74,71 @@ $router->group([
     $router->post('patients/{id}', 'PatientController@get');
     $router->post('patients/{id}/update', 'PatientController@put');
     $router->post('patients/{id}/remove', 'PatientController@remove');
+
+    $router->post('appointments', 'AppointmentController@all');
+    $router->post('appointments/add', 'AppointmentController@add');
+    $router->post('appointments/{id}', 'AppointmentController@get');
+    $router->post('appointments/{id}/update', 'AppointmentController@put');
+    $router->post('appointments/{id}/remove', 'AppointmentController@remove');
+
+    $router->post('medical_records', 'MedicalRecordController@all');
+    $router->post('medical_records/add', 'MedicalRecordController@add');
+    $router->post('medical_records/{id}', 'MedicalRecordController@get');
+    $router->post('medical_records/{id}/update', 'MedicalRecordController@put');
+    $router->post('medical_records/{id}/remove', 'MedicalRecordController@remove');
+
+    $router->post('pharmacy_categorys', 'PharmacyCategoryController@all');
+    $router->post('pharmacy_categorys/add', 'PharmacyCategoryController@add');
+    $router->post('pharmacy_categorys/{id}', 'PharmacyCategoryController@get');
+    $router->post('pharmacy_categorys/{id}/update', 'PharmacyCategoryController@put');
+    $router->post('pharmacy_categorys/{id}/remove', 'PharmacyCategoryController@remove');
+
+    $router->post('suppliers', 'SupplierController@all');
+    $router->post('suppliers/add', 'SupplierController@add');
+    $router->post('suppliers/{id}', 'SupplierController@get');
+    $router->post('suppliers/{id}/update', 'SupplierController@put');
+    $router->post('suppliers/{id}/remove', 'SupplierController@remove');
+
+    $router->post('pharmacy_items', 'PharmacyItemController@all');
+    $router->post('pharmacy_items/add', 'PharmacyItemController@add');
+    $router->post('pharmacy_items/{id}', 'PharmacyItemController@get');
+    $router->post('pharmacy_items/{id}/update', 'PharmacyItemController@put');
+    $router->post('pharmacy_items/{id}/remove', 'PharmacyItemController@remove');
+
+    $router->post('prescriptions', 'PrescriptionController@all');
+    $router->post('prescriptions/add', 'PrescriptionController@add');
+    $router->post('prescriptions/{id}', 'PrescriptionController@get');
+    $router->post('prescriptions/{id}/update', 'PrescriptionController@put');
+    $router->post('prescriptions/{id}/remove', 'PrescriptionController@remove');
+
+    $router->post('diagnosis_requests', 'DiagnosisRequestController@all');
+    $router->post('diagnosis_requests/add', 'DiagnosisRequestController@add');
+    $router->post('diagnosis_requests/{id}', 'DiagnosisRequestController@get');
+    $router->post('diagnosis_requests/{id}/update', 'DiagnosisRequestController@put');
+    $router->post('diagnosis_requests/{id}/remove', 'DiagnosisRequestController@remove');
+
+    $router->post('diagnosis_request_items', 'DiagnosisRequestItemController@all');
+    $router->post('diagnosis_request_items/add', 'DiagnosisRequestItemController@add');
+    $router->post('diagnosis_request_items/{id}', 'DiagnosisRequestItemController@get');
+    $router->post('diagnosis_request_items/{id}/update', 'DiagnosisRequestItemController@put');
+    $router->post('diagnosis_request_items/{id}/remove', 'DiagnosisRequestItemController@remove');
+
+    $router->post('diagnosis_reports', 'DiagnosisReportController@all');
+    $router->post('diagnosis_reports/add', 'DiagnosisReportController@add');
+    $router->post('diagnosis_reports/{id}', 'DiagnosisReportController@get');
+    $router->post('diagnosis_reports/{id}/update', 'DiagnosisReportController@put');
+    $router->post('diagnosis_reports/{id}/remove', 'DiagnosisReportController@remove');
+
+    $router->post('diagnosis_report_items', 'DiagnosisReportItemController@all');
+    $router->post('diagnosis_report_items/add', 'DiagnosisReportItemController@add');
+    $router->post('diagnosis_report_items/{id}', 'DiagnosisReportItemController@get');
+    $router->post('diagnosis_report_items/{id}/update', 'DiagnosisReportItemController@put');
+    $router->post('diagnosis_report_items/{id}/remove', 'DiagnosisReportItemController@remove');
+
+    $router->post('opd_rooms', 'OPDRoomController@all');
+    $router->post('opd_rooms/add', 'OPDRoomController@add');
+    $router->post('opd_rooms/{id}', 'OPDRoomController@get');
+    $router->post('opd_rooms/{id}/update', 'OPDRoomController@put');
+    $router->post('opd_rooms/{id}/remove', 'OPDRoomController@remove');
+
 });

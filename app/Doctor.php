@@ -19,8 +19,23 @@ class Doctor extends Model
     protected $fillable = [
         'name',
         'phone',
-        'department_id',
         'employee_id',
-        'consultation_charge',
+        'opd_charge',
+        'ipd_charge'
     ];
+
+    protected $hidden = [
+        'department_id',
+        'employee_id'
+    ];
+
+    public function department(){
+        return $this->hasOne("App\Department",'id','department_id');
+    }
+    public function employee(){
+        return $this->hasOne("App\Employee",'id','employee_id')->select('id','department_id');
+    }
+    public function opd(){
+        return $this->hasOne("App\OPDRoom",'current_doctor_id','id');
+    }
 }

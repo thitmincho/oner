@@ -44,6 +44,10 @@ class Employee extends Model
         'updated_user_login_id',
     ];
 
+    protected $hidden = [
+        'department_id',
+        // 'employee_id'
+    ];
     public function department(){
         return $this->hasOne("App\Department",'id','department_id');
     }

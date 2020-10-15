@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\PharmacyItem;
+use App\PharmacyCategory;
 use Illuminate\Support\Facades\Auth;
 
-class PharmacyItemController extends Controller
+class PharmacyCategoryController extends Controller
 {
     // get all data
     public function all()
     {
-        $pharmacyitems = PharmacyItem::all();
-        return $this->respond('done', $pharmacyitems);
+        $pharmacycategorys = PharmacyCategory::all();
+        return $this->respond('done', $pharmacycategorys);
     }
     // retrieve single data
     public function get($id)
     {
-        $pharmacyitem = PharmacyItem::find($id);
-        if(is_null($pharmacyitem)){
+        $pharmacycategory = PharmacyCategory::find($id);
+        if(is_null($pharmacycategory)){
             return $this->respond('not_found'); 
         }   
-        return $this->respond('done',$pharmacyitem);
+        return $this->respond('done',$pharmacycategory);
     }
     // validate and add row to db
     public function add(Request $request)
@@ -28,17 +28,15 @@ class PharmacyItemController extends Controller
         //validate incoming request 
         $this->validate($request, [
            'name' => 'required',
-           'pharmacy_category_id' => 'required',
-           
         ]);
 
         try {
-            $pharmacyitem = $request->all();
-            $pharmacyitem['created_user_id'] = Auth::user()->id;
-            $pharmacyitem['updated_user_id'] = 0;
-            PharmacyItem::insert($pharmacyitem);
+            $pharmacycategory = $request->all();
+            $pharmacycategory['created_user_id'] = Auth::user()->id;
+            $pharmacycategory['updated_user_id'] = 0;
+            PharmacyCategory::insert($pharmacycategory);
             //return successful response
-            return $this->respond('created', $pharmacyitem);
+            return $this->respond('created', $pharmacycategory);
         } catch (\Exception $e) {
             //return error message
             return $this->respond('not_valid', $e);
@@ -50,24 +48,23 @@ class PharmacyItemController extends Controller
         $requestData = $request->all();
         $this->validate($request, [
             'name' => 'required',
-            'pharmacy_category_id' => 'required',
          ]);
-        $pharmacyitem = PharmacyItem::find($id);
-        if(is_null($pharmacyitem)){
+        $pharmacycategory = PharmacyCategory::find($id);
+        if(is_null($pharmacycategory)){
             return $this->respond('not_found');
         }
         $requestData['updated_user_id'] = Auth::user()->id;
-        $pharmacyitem->update($requestData);
-        return $this->respond('done', $pharmacyitem);
+        $pharmacycategory->update($requestData);
+        return $this->respond('done', $pharmacycategory);
     }
     // remove single row
     public function remove($id)
 	{
-		$pharmacyitem = PharmacyItem::find($id);
-		if(is_null($pharmacyitem)){
+		$pharmacycategory = PharmacyCategory::find($id);
+		if(is_null($pharmacycategory)){
             return $this->respond('not_found');
 		}
-		PharmacyItem::destroy($id);
-        return $this->respond('removed',$pharmacyitem);
+		PharmacyCategory::destroy($id);
+        return $this->respond('removed',$pharmacycategory);
 	}
 }

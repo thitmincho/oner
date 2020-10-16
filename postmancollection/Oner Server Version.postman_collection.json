@@ -1,0 +1,3038 @@
+{
+	"info": {
+		"_postman_id": "2fc07835-856b-47f3-add1-7b08a2cae607",
+		"name": "Oner Server Version",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA1OTE2NSwiZXhwIjoxNjAxMDYyNzY1LCJuYmYiOjE2MDEwNTkxNjUsImp0aSI6InNoWDcxTWxIWTNHWXpxVzMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pCrdvvZDOEctw-eEezp3seG6UznYN-J81DBw1vRtIB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "Roman3",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "roman3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin123",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Admin123",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAwNjI5NzIwLCJleHAiOjE2MDA2MzMzMjAsIm5iZiI6MTYwMDYyOTcyMCwianRpIjoicGUxNzR3MVdUTkVmTEliSiIsInN1YiI6NywicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.OpM5ok4nrUTWn6YazmJZJZbAwnls5UcpM03g9wUBLCE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/8",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAyNzc2OTcxLCJleHAiOjE2MDI3ODA1NzEsIm5iZiI6MTYwMjc3Njk3MSwianRpIjoidTJZcVUxTGlrdGU5M2RJVyIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.qojR652eh3SnZkP7n1XHYOFcqEro5OC_yMNzst9wUZA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/users",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA1OTE2NSwiZXhwIjoxNjAxMDYyNzY1LCJuYmYiOjE2MDEwNTkxNjUsImp0aSI6InNoWDcxTWxIWTNHWXpxVzMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pCrdvvZDOEctw-eEezp3seG6UznYN-J81DBw1vRtIB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullname",
+									"value": "Roman Account 3",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "roman3",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Admin123",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Admin123",
+									"type": "text"
+								},
+								{
+									"key": "level",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/13/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"13",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAwNjI5NzIwLCJleHAiOjE2MDA2MzMzMjAsIm5iZiI6MTYwMDYyOTcyMCwianRpIjoicGUxNzR3MVdUTkVmTEliSiIsInN1YiI6NywicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.OpM5ok4nrUTWn6YazmJZJZbAwnls5UcpM03g9wUBLCE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/users/8/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"8",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Add Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxMTE1NTAxLCJleHAiOjE2MDExMTkxMDEsIm5iZiI6MTYwMTExNTUwMSwianRpIjoiMVQxY1hzNTJ5UFluMXBLRCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.ZMW0T3tDAGsS-GXWlarX3aZIsX4fPHGyq-2OwLwC2bU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_identification_number",
+									"value": "10004",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Nway Nway Acc to Remove",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Female",
+									"type": "text"
+								},
+								{
+									"key": "tax_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "passport_number",
+									"value": "10004",
+									"type": "text"
+								},
+								{
+									"key": "position_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/employees/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"employees",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA1OTE2NSwiZXhwIjoxNjAxMDYyNzY1LCJuYmYiOjE2MDEwNTkxNjUsImp0aSI6InNoWDcxTWxIWTNHWXpxVzMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pCrdvvZDOEctw-eEezp3seG6UznYN-J81DBw1vRtIB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "employee_identification_number",
+									"value": "10001",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Tun Tun Account",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "tax_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "passport_number",
+									"value": "10001",
+									"type": "text"
+								},
+								{
+									"key": "position_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/employees/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"employees",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxMTI5NjE5LCJleHAiOjE2MDExMzMyMTksIm5iZiI6MTYwMTEyOTYxOSwianRpIjoiYnV2TDQ5R2NOclBTdGFDMSIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.yYX6Bh9iG4ytw5omLdffAePMZYOEgjBrl3UTJl7loZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/employees",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxMTI5NjE5LCJleHAiOjE2MDExMzMyMTksIm5iZiI6MTYwMTEyOTYxOSwianRpIjoiYnV2TDQ5R2NOclBTdGFDMSIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.yYX6Bh9iG4ytw5omLdffAePMZYOEgjBrl3UTJl7loZg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/employees/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA1OTE2NSwiZXhwIjoxNjAxMDYyNzY1LCJuYmYiOjE2MDEwNTkxNjUsImp0aSI6InNoWDcxTWxIWTNHWXpxVzMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.pCrdvvZDOEctw-eEezp3seG6UznYN-J81DBw1vRtIB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/employees/3/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"employees",
+								"3",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Add Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Role 3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/roles/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"roles",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Role 4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/roles/3/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"roles",
+								"3",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/roles/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"roles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/roles/3/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"roles",
+								"3",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/roles",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Departments",
+			"item": [
+				{
+					"name": "Add Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxMTI3Njc4LCJleHAiOjE2MDExMzEyNzgsIm5iZiI6MTYwMTEyNzY3OCwianRpIjoiVDBmTFNIZ21PNGtVU0NGZSIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.3VYFjosSmjoYkbPageErY46dQmaSS3iWWVyjWiY_Uyo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Dept2",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Dept 2 Description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/departments/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"departments",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Department 3",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description Department 3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/departments/3/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"departments",
+								"3",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/departments/2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"departments",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/departments/3/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"departments",
+								"3",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Departments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxMTI3Njc4LCJleHAiOjE2MDExMzEyNzgsIm5iZiI6MTYwMTEyNzY3OCwianRpIjoiVDBmTFNIZ21PNGtVU0NGZSIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.3VYFjosSmjoYkbPageErY46dQmaSS3iWWVyjWiY_Uyo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/departments",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"departments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Positions",
+			"item": [
+				{
+					"name": "Add Position",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxMDY0MjQwLCJleHAiOjE2MDEwNjc4NDAsIm5iZiI6MTYwMTA2NDI0MCwianRpIjoicEFYM2Q3T0pRbmJFZmNRUCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.VAVMPrwcCTQS2pVV6xevhdIN-mGsdLBrz7Ccd-M4DVw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Position 3",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Position 3 Description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/positions/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"positions",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Position",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Position 3",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Description Position 3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/positions/3/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"positions",
+								"3",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Position",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/positions/3",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"positions",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Position",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/positions/3/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"positions",
+								"3",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Position",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/positions",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"positions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Add Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Doctor 2",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1213123",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "employee_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "opd_charge",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "ipd_charge",
+									"value": "10000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/doctors/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Doctor One",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "1213123",
+									"type": "text"
+								},
+								{
+									"key": "department_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "employee_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "consultation_charge",
+									"value": "5000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/doctors/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMTA2MTk3NSwiZXhwIjoxNjAxMDY1NTc1LCJuYmYiOjE2MDEwNjE5NzUsImp0aSI6IlZBRTc0MmtmV3ppODVERHMiLCJzdWIiOjExLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.KYzCKsTAid1P1p9lFar0cx5ac1K0aH4u1hkXkZWuuRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/doctors/3",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/doctors/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"doctors",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Doctor",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/doctors",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "Add Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Patient 1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "1980-09-12",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Yangon",
+									"type": "text"
+								},
+								{
+									"key": "township",
+									"value": "Yangon",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "Yangon",
+									"type": "text"
+								},
+								{
+									"key": "blood_group",
+									"value": "0+",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/patients/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Patient 1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "date_of_birth",
+									"value": "1980-09-12",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Yangon",
+									"type": "text"
+								},
+								{
+									"key": "township",
+									"value": "Yangon",
+									"type": "text"
+								},
+								{
+									"key": "region",
+									"value": "Yangon",
+									"type": "text"
+								},
+								{
+									"key": "blood_group",
+									"value": "O+",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/patients/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/patients/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/patients/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"patients",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Patient",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/patients",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Appointment",
+			"item": [
+				{
+					"name": "Add Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "opd_room_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "appointment_time",
+									"value": "2020-10-29 12:20:00",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "appointment_type",
+									"value": "Outpatient",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "Walk In",
+									"type": "text"
+								},
+								{
+									"key": "create_user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "created_user_login_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "updated_user_login_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/appointments/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "patient_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "opd_room_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "appointment_time",
+									"value": "2020-10-29 12:20:00",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "appointment_type",
+									"value": "Outpatient",
+									"type": "text"
+								},
+								{
+									"key": "source",
+									"value": "Walk In",
+									"type": "text"
+								},
+								{
+									"key": "create_user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "created_user_login_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "updated_user_login_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/appointments/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/appointments/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/appointments/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"appointments",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Appointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/appointments",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Medical Records",
+			"item": [
+				{
+					"name": "Add Medical Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc2MzIxMCwiZXhwIjoxNjAyNzY2ODEwLCJuYmYiOjE2MDI3NjMyMTAsImp0aSI6ImlBY3IwWkdzU3dEU25JM2IiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.poFXshdneDDHb0zW8S3n3cHE92YJnnuZ4DQ9ztvAnvE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "record_type",
+									"value": "Outpatient",
+									"type": "text"
+								},
+								{
+									"key": "care_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_notes",
+									"value": "Doctor Note",
+									"type": "text"
+								},
+								{
+									"key": "attachment",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/medical_records/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical_records",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Medical Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc2MzIxMCwiZXhwIjoxNjAyNzY2ODEwLCJuYmYiOjE2MDI3NjMyMTAsImp0aSI6ImlBY3IwWkdzU3dEU25JM2IiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.poFXshdneDDHb0zW8S3n3cHE92YJnnuZ4DQ9ztvAnvE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "record_type",
+									"value": "Outpatient",
+									"type": "text"
+								},
+								{
+									"key": "care_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "doctor_notes",
+									"value": "Doctor Note Update",
+									"type": "text"
+								},
+								{
+									"key": "attachment",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/medical_records/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical_records",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medical Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc2MzIxMCwiZXhwIjoxNjAyNzY2ODEwLCJuYmYiOjE2MDI3NjMyMTAsImp0aSI6ImlBY3IwWkdzU3dEU25JM2IiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.poFXshdneDDHb0zW8S3n3cHE92YJnnuZ4DQ9ztvAnvE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/medical_records/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical_records",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Medical Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAxNzI0MDQxLCJleHAiOjE2MDE3Mjc2NDEsIm5iZiI6MTYwMTcyNDA0MSwianRpIjoid1dTZ1dzakMzS1ZEUnhZOCIsInN1YiI6OSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.TN9iCZvN6vdoBn9CMmRXv7JVjteSXSBbLqT0K5n6_gs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/medical_records/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical_records",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Medical Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc2MzIxMCwiZXhwIjoxNjAyNzY2ODEwLCJuYmYiOjE2MDI3NjMyMTAsImp0aSI6ImlBY3IwWkdzU3dEU25JM2IiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.poFXshdneDDHb0zW8S3n3cHE92YJnnuZ4DQ9ztvAnvE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/medical_records",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"medical_records"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pharmacy Categorys",
+			"item": [
+				{
+					"name": "Add Pharmacy Categorys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PC2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_categorys/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_categorys",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pharmacy Categorys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Pharmacy Category 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_categorys/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_categorys",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pharmacy Categorys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_categorys/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_categorys",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Pharmacy Categorys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_categorys/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_categorys",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Pharmacy Categorys",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_categorys",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_categorys"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Suppliers",
+			"item": [
+				{
+					"name": "Add Suppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Supplier 2",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "AAAABBB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/suppliers/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"suppliers",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Suppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Supplier Name 1",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "AAAABBB",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/suppliers/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"suppliers",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Suppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/suppliers/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"suppliers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Suppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/suppliers/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"suppliers",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Suppliers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/suppliers",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Pharmacy Items",
+			"item": [
+				{
+					"name": "Add Pharmacy Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PI 2",
+									"type": "text"
+								},
+								{
+									"key": "pharmacy_category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "universal_product_code",
+									"value": "123124",
+									"type": "text"
+								},
+								{
+									"key": "sale_price",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "purchase_price",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "supplier_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_items/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_items",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pharmacy Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PI 1 Item",
+									"type": "text"
+								},
+								{
+									"key": "pharmacy_category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "universal_product_code",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "sale_price",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "purchase_price",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "supplier_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_items/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_items",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pharmacy Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_items/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Pharmacy Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_items/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_items",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Pharmacy Item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/pharmacy_items",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"pharmacy_items"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "OPD Rooms",
+			"item": [
+				{
+					"name": "Add OPD Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "102",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "102",
+									"type": "text"
+								},
+								{
+									"key": "current_doctor_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "current_queue_token",
+									"value": "1112",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/opd_rooms/add",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"opd_rooms",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update OPD Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "PI 1 Item",
+									"type": "text"
+								},
+								{
+									"key": "pharmacy_category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "universal_product_code",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "sale_price",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "purchase_price",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "supplier_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/opd_rooms/1/update",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"opd_rooms",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get OPD Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/opd_rooms/1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"opd_rooms",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove OPD Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/opd_rooms/1/remove",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"opd_rooms",
+								"1",
+								"remove"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All OPD Rooms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYwMjc3MTIwNSwiZXhwIjoxNjAyNzc0ODA1LCJuYmYiOjE2MDI3NzEyMDUsImp0aSI6IjlEcTlLMk14TjZ3VmlNSnEiLCJzdWIiOjcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.19_aW-JokRTb4VIgMcf2FMaVL94yzzed_cNaHgB-gMQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/opd_rooms",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"opd_rooms"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fullname",
+							"value": "Roman",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "roman1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Admin123",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "Admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/registers",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"registers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "roman1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/login",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAwNjI5NjkxLCJleHAiOjE2MDA2MzMyOTEsIm5iZiI6MTYwMDYyOTY5MSwianRpIjoiNkw4N2ltd3V5ajNwWHNGeCIsInN1YiI6NywicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.PuHp9ygVILZKqFc7eXerv5uEDrWUOBktQxIawH-mFUg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "roman",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Admin123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseUrl}}/api/logout",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current Account info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAwNjI5NjI4LCJleHAiOjE2MDA2MzMyMjgsIm5iZiI6MTYwMDYyOTYyOCwianRpIjoiOTR4bXVzVXlnaEpSWDVQRyIsInN1YiI6NywicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.s64dql8xEX3bp3sZv4zfyyqgNxMCzZVtgrcREm4ROIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/me",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Refresh",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvb25lcm1tLm1sXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjAwNjI5NjI4LCJleHAiOjE2MDA2MzMyMjgsIm5iZiI6MTYwMDYyOTYyOCwianRpIjoiOTR4bXVzVXlnaEpSWDVQRyIsInN1YiI6NywicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.s64dql8xEX3bp3sZv4zfyyqgNxMCzZVtgrcREm4ROIE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/api/refresh",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"api",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -141,4 +141,22 @@ $router->group([
     $router->post('opd_rooms/{id}/update', 'OPDRoomController@put');
     $router->post('opd_rooms/{id}/remove', 'OPDRoomController@remove');
 
+    $router->post('service_categorys', 'ServiceCategoryController@all');
+    $router->post('service_categorys/add', 'ServiceCategoryController@add');
+    $router->post('service_categorys/{id}', 'ServiceCategoryController@get');
+    $router->post('service_categorys/{id}/update', 'ServiceCategoryController@put');
+    $router->post('service_categorys/{id}/remove', 'ServiceCategoryController@remove');
+
+    $router->post('service_items', 'ServiceItemController@all');
+    $router->post('service_items/add', 'ServiceItemController@add');
+    $router->post('service_items/{id}', 'ServiceItemController@get');
+    $router->post('service_items/{id}/update', 'ServiceItemController@put');
+    $router->post('service_items/{id}/remove', 'ServiceItemController@remove');
+
+    $router->post('bills', 'BillController@all');
+    $router->post('bills/add', 'BillController@add');
+    $router->post('bills/{id}', 'BillController@get');
+    $router->post('bills/{id}/update', 'BillController@put');
+    $router->post('bills/{id}/remove', 'BillController@remove');
+
 });

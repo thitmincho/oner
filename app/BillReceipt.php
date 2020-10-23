@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Appointment extends Model 
+class BillReceipt extends Model 
 {    
-    protected $table = 'appointment';
+    protected $table = 'bill_receipt';
     const CREATED_AT = 'created_time';
     const UPDATED_AT = 'updated_time';
     // public $timestamps = false;
@@ -17,15 +17,11 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
-        'patient_id',
-        'doctor_id',
-        'opd_room_id',
-        'appointment_time',
+        'bill_id',
+        'date',
+        'amount',
         'status',
-        // 'appointment_type',
-        'source',
-        'create_user_id',
-        'created_user_login_id',
-        'updated_user_login_id',
+        'created_user_id',
+        'updated_user_id',
     ];
 }

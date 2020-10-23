@@ -31,7 +31,7 @@ class AppointmentController extends Controller
             'opd_room_id' => 'required',
             'appointment_time' => 'required',
             'status' => 'required',
-            'appointment_type' => 'required',
+            // 'appointment_type' => 'required',
             'source' => 'required',
         ]);
 
@@ -55,7 +55,7 @@ class AppointmentController extends Controller
             'opd_room_id' => 'required',
             'appointment_time' => 'required',
             'status' => 'required',
-            'appointment_type' => 'required',
+            // 'appointment_type' => 'required',
             'source' => 'required',
         ]);
         $appointment = Appointment::find($id);

@@ -30,4 +30,11 @@ class Bill extends Model
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function billreceipt(){
+        return $this->hasMany('App\BillReceipt','bill_id','id');
+    }
+    public function billitem(){
+        return $this->hasMany('App\BillServiceItem','bill_id','id');
+    }
 }

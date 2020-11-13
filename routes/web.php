@@ -87,23 +87,83 @@ $router->group([
     $router->post('medical_records/{id}/update', 'MedicalRecordController@put');
     $router->post('medical_records/{id}/remove', 'MedicalRecordController@remove');
 
-    $router->post('pharmacy_categorys', 'PharmacyCategoryController@all');
-    $router->post('pharmacy_categorys/add', 'PharmacyCategoryController@add');
-    $router->post('pharmacy_categorys/{id}', 'PharmacyCategoryController@get');
-    $router->post('pharmacy_categorys/{id}/update', 'PharmacyCategoryController@put');
-    $router->post('pharmacy_categorys/{id}/remove', 'PharmacyCategoryController@remove');
-
     $router->post('suppliers', 'SupplierController@all');
     $router->post('suppliers/add', 'SupplierController@add');
     $router->post('suppliers/{id}', 'SupplierController@get');
     $router->post('suppliers/{id}/update', 'SupplierController@put');
     $router->post('suppliers/{id}/remove', 'SupplierController@remove');
 
+    $router->post('pharmacy_categorys', 'PharmacyCategoryController@all');
+    $router->post('pharmacy_categorys/add', 'PharmacyCategoryController@add');
+    $router->post('pharmacy_categorys/{id}', 'PharmacyCategoryController@get');
+    $router->post('pharmacy_categorys/{id}/update', 'PharmacyCategoryController@put');
+    $router->post('pharmacy_categorys/{id}/remove', 'PharmacyCategoryController@remove');
+
     $router->post('pharmacy_items', 'PharmacyItemController@all');
     $router->post('pharmacy_items/add', 'PharmacyItemController@add');
     $router->post('pharmacy_items/{id}', 'PharmacyItemController@get');
     $router->post('pharmacy_items/{id}/update', 'PharmacyItemController@put');
     $router->post('pharmacy_items/{id}/remove', 'PharmacyItemController@remove');
+    
+    $router->post('pharmacy_sales', 'PharmacySaleController@all');
+    $router->post('pharmacy_sales/add', 'PharmacySaleController@add');
+    $router->post('pharmacy_sales/{id}', 'PharmacySaleController@get');
+    $router->post('pharmacy_sales/{id}/update', 'PharmacySaleController@put');
+    $router->post('pharmacy_sales/{id}/remove', 'PharmacySaleController@remove');
+
+    $router->post('pharmacy_sale_receipts', 'PharmacySaleReceiptController@all');
+    $router->post('pharmacy_sale_receipts/add', 'PharmacySaleReceiptController@add');
+    $router->post('pharmacy_sale_receipts/{id}', 'PharmacySaleReceiptController@get');
+    $router->post('pharmacy_sale_receipts/{id}/update', 'PharmacySaleReceiptController@put');
+    $router->post('pharmacy_sale_receipts/{id}/remove', 'PharmacySaleReceiptController@remove');
+    
+    $router->post('pharmacy_sale_items', 'PharmacySaleItemController@all');
+    $router->post('pharmacy_sale_items/add', 'PharmacySaleItemController@add');
+    $router->post('pharmacy_sale_items/{id}', 'PharmacySaleItemController@get');
+    $router->post('pharmacy_sale_items/{id}/update', 'PharmacySaleItemController@put');
+    $router->post('pharmacy_sale_items/{id}/remove', 'PharmacySaleItemController@remove');
+
+    $router->post('pharmacy_purchases', 'PharmacyPurchaseController@all');
+    $router->post('pharmacy_purchases/add', 'PharmacyPurchaseController@add');
+    $router->post('pharmacy_purchases/{id}', 'PharmacyPurchaseController@get');
+    $router->post('pharmacy_purchases/{id}/update', 'PharmacyPurchaseController@put');
+    $router->post('pharmacy_purchases/{id}/remove', 'PharmacyPurchaseController@remove');
+
+    $router->post('pharmacy_purchase_items', 'PharmacyPurchaseItemController@all');
+    $router->post('pharmacy_purchase_items/add', 'PharmacyPurchaseItemController@add');
+    $router->post('pharmacy_purchase_items/{id}', 'PharmacyPurchaseItemController@get');
+    $router->post('pharmacy_purchase_items/{id}/update', 'PharmacyPurchaseItemController@put');
+    $router->post('pharmacy_purchase_items/{id}/remove', 'PharmacyPurchaseItemController@remove');
+
+    $router->post('pharmacy_purchase_payments', 'PharmacyPurchasePaymentController@all');
+    $router->post('pharmacy_purchase_payments/add', 'PharmacyPurchasePaymentController@add');
+    $router->post('pharmacy_purchase_payments/{id}', 'PharmacyPurchasePaymentController@get');
+    $router->post('pharmacy_purchase_payments/{id}/update', 'PharmacyPurchasePaymentController@put');
+    $router->post('pharmacy_purchase_payments/{id}/remove', 'PharmacyPurchasePaymentController@remove');
+
+    $router->post('pharmacy_issues', 'PharmacyIssueController@all');
+    $router->post('pharmacy_issues/add', 'PharmacyIssueController@add');
+    $router->post('pharmacy_issues/{id}', 'PharmacyIssueController@get');
+    $router->post('pharmacy_issues/{id}/update', 'PharmacyIssueController@put');
+    $router->post('pharmacy_issues/{id}/remove', 'PharmacyIssueController@remove');
+    
+    $router->post('pharmacy_issue_items', 'PharmacyIssueItemController@all');
+    $router->post('pharmacy_issue_items/add', 'PharmacyIssueItemController@add');
+    $router->post('pharmacy_issue_items/{id}', 'PharmacyIssueItemController@get');
+    $router->post('pharmacy_issue_items/{id}/update', 'PharmacyIssueItemController@put');
+    $router->post('pharmacy_issue_items/{id}/remove', 'PharmacyIssueItemController@remove');
+
+    $router->post('pharmacy_inventorys', 'PharmacyInventoryController@all');
+    $router->post('pharmacy_inventorys/add', 'PharmacyInventoryController@add');
+    $router->post('pharmacy_inventorys/{id}', 'PharmacyInventoryController@get');
+    $router->post('pharmacy_inventorys/{id}/update', 'PharmacyInventoryController@put');
+    $router->post('pharmacy_inventorys/{id}/remove', 'PharmacyInventoryController@remove');
+
+    $router->post('pharmacy_warehouses', 'PharmacyWarehouseController@all');
+    $router->post('pharmacy_warehouses/add', 'PharmacyWarehouseController@add');
+    $router->post('pharmacy_warehouses/{id}', 'PharmacyWarehouseController@get');
+    $router->post('pharmacy_warehouses/{id}/update', 'PharmacyWarehouseController@put');
+    $router->post('pharmacy_warehouses/{id}/remove', 'PharmacyWarehouseController@remove');
 
     $router->post('prescriptions', 'PrescriptionController@all');
     $router->post('prescriptions/add', 'PrescriptionController@add');
@@ -159,4 +219,16 @@ $router->group([
     $router->post('bills/{id}/update', 'BillController@put');
     $router->post('bills/{id}/remove', 'BillController@remove');
 
+    $router->post('bill_service_items', 'BillServiceItemController@all');
+    $router->post('bill_service_items/add', 'BillServiceItemController@add');
+    $router->post('bill_service_items/{id}', 'BillServiceItemController@get');
+    $router->post('bill_service_items/{id}/update', 'BillServiceItemController@put');
+    $router->post('bill_service_items/{id}/remove', 'BillServiceItemController@remove');
+
+    $router->post('bill_service_receipt', 'BillServiceReceiptController@all');
+    $router->post('bill_service_receipt/add', 'BillServiceReceiptController@add');
+    $router->post('bill_service_receipt/{id}', 'BillServiceReceiptController@get');
+    $router->post('bill_service_receipt/{id}/update', 'BillServiceReceiptController@put');
+    $router->post('bill_service_receipt/{id}/remove', 'BillServiceReceiptController@remove');
+    
 });

@@ -6,10 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BillServiceItem extends Model 
 {    
-    protected $table = 'bill';
-    const CREATED_AT = 'created_time';
-    const UPDATED_AT = 'updated_time';
-    // public $timestamps = false;
+    protected $table = 'bill_service_item';
+    public $timestamps = false;
     
     /**
      * The attributes that are mass assignable.
@@ -22,4 +20,9 @@ class BillServiceItem extends Model
         'charge',
         'charge_type',
     ];
+
+    public function serviceitem(){
+        return $this->hasOne('App\ServiceItem','id','service_item_id');
+    }
+    
 }

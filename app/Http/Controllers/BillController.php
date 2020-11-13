@@ -11,13 +11,13 @@ class BillController extends Controller
     // get all data
     public function all()
     {
-        $bills = Bill::all();
+        $bills = Bill::with('billreceipt','billitem')->get();
         return $this->respond('done', $bills);
     }
     // retrieve single data
     public function get($id)
     {
-        $bill = Bill::find($id);
+        $bill = Bill::with('billreceipt','billitem.serviceitem.category')->find($id);
         if(is_null($bill)){
             return $this->respond('not_found'); 
         }   

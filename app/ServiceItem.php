@@ -22,4 +22,8 @@ class ServiceItem extends Model
         'charge_type',
         'standard_charge'
     ];
+
+    public function category(){
+        return $this->hasOne('App\ServiceCategory','id','service_category_id');
+    }
 }

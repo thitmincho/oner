@@ -63,6 +63,36 @@ $router->group([
     $router->post('positions/{id}/update', 'PositionController@put');
     $router->post('positions/{id}/remove', 'PositionController@remove');
 
+    $router->post('salarys', 'SalaryController@all');
+    $router->post('salarys/add', 'SalaryController@add');
+    $router->post('salarys/{id}', 'SalaryController@get');
+    $router->post('salarys/{id}/update', 'SalaryController@put');
+    $router->post('salarys/{id}/remove', 'SalaryController@remove');
+
+    $router->post('attendances', 'AttendanceController@all');
+    $router->post('attendances/add', 'AttendanceController@add');
+    $router->post('attendances/{id}', 'AttendanceController@get');
+    $router->post('attendances/{id}/update', 'AttendanceController@put');
+    $router->post('attendances/{id}/remove', 'AttendanceController@remove');
+
+    $router->post('payrolls', 'PayrollController@all');
+    $router->post('payrolls/add', 'PayrollController@add');
+    $router->post('payrolls/{id}', 'PayrollController@get');
+    $router->post('payrolls/{id}/update', 'PayrollController@put');
+    $router->post('payrolls/{id}/remove', 'PayrollController@remove');
+
+    $router->post('leave_requests', 'LeaveRequestController@all');
+    $router->post('leave_requests/add', 'LeaveRequestController@add');
+    $router->post('leave_requests/{id}', 'LeaveRequestController@get');
+    $router->post('leave_requests/{id}/update', 'LeaveRequestController@put');
+    $router->post('leave_requests/{id}/remove', 'LeaveRequestController@remove');
+
+    $router->post('leave_types', 'LeaveTypeController@all');
+    $router->post('leave_types/add', 'LeaveTypeController@add');
+    $router->post('leave_types/{id}', 'LeaveTypeController@get');
+    $router->post('leave_types/{id}/update', 'LeaveTypeController@put');
+    $router->post('leave_types/{id}/remove', 'LeaveTypeController@remove');
+
     $router->post('doctors', 'DoctorController@all');
     $router->post('doctors/add', 'DoctorController@add');
     $router->post('doctors/{id}', 'DoctorController@get');

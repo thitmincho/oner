@@ -33,7 +33,7 @@ class Doctor extends Model
         return $this->hasOne("App\Department",'id','department_id');
     }
     public function employee(){
-        return $this->hasOne("App\Employee",'id','employee_id')->select('id','department_id');
+        return $this->hasOne("App\Employee",'id','employee_id')->select('id','department_id','name');
     }
     public function opd(){
         return $this->hasOne("App\OPDRoom",'current_doctor_id','id');

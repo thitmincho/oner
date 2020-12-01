@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Appointment;
+use App\Doctor;
+use App\OPDRoom;
+use App\Patient;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
@@ -10,7 +14,14 @@ class AppointmentController extends Controller
     public function all()
     {
         $appointments = Appointment::all();
-        return $this->respond('done', $appointments);
+        $patients = Patient::all();
+        $doctors = Doctor::all();
+        $opds = OPDRoom::all();
+        $respData['appointments'] = $appointments;
+        $respData['patients'] = $patients;
+        $respData['doctors'] = $doctors;
+        $respData['opds'] = $opds;
+        return $this->respond('done', $respData);
     }
     // retrieve single data
     public function get($id)
@@ -29,7 +40,6 @@ class AppointmentController extends Controller
             'patient_id' => 'required',
             'doctor_id' => 'required',
             'opd_room_id' => 'required',
-            'appointment_time' => 'required',
             'status' => 'required',
             // 'appointment_type' => 'required',
             'source' => 'required',
@@ -37,7 +47,11 @@ class AppointmentController extends Controller
 
         try {
             $appointment = $request->all();
+            $_appointments = Appointment::whereBetween('created_time',[date('y-m-d').' 00:00:00%',date('y-m-d').' 23:59:59%'])->count();
             
+            $appointment['queue_ticket_number'] = str_pad($_appointments+1, 4, '0', STR_PAD_LEFT).''.date('dmy');
+            $appointment['created_user_id'] = Auth::user()->id;
+            $appointment['updated_user_id'] = 0;
             Appointment::insert($appointment);
             //return successful response
             return $this->respond('created', $appointment);
@@ -49,20 +63,22 @@ class AppointmentController extends Controller
     // single row update
     public function put($id, Request $request)
     {
+        $requestData = $request->all();
         $this->validate($request, [
             'patient_id' => 'required',
             'doctor_id' => 'required',
             'opd_room_id' => 'required',
-            'appointment_time' => 'required',
             'status' => 'required',
             // 'appointment_type' => 'required',
             'source' => 'required',
         ]);
+        
         $appointment = Appointment::find($id);
         if(is_null($appointment)){
             return $this->respond('not_found');
         }
-        $appointment->update($request->all());
+        $requestData['updated_user_id'] = Auth::user()->id;
+        $appointment->update($requestData);
         return $this->respond('done', $appointment);
     }
     // remove single row
@@ -74,5 +90,6 @@ class AppointmentController extends Controller
 		}
 		Appointment::destroy($id);
         return $this->respond('removed',$appointment);
-	}
+    }
+    
 }

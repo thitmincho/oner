@@ -27,5 +27,6 @@ class Appointment extends Model
         'create_user_id',
         'created_user_login_id',
         'updated_user_login_id',
+        'queue_ticket_number'
     ];
 }

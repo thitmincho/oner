@@ -39,7 +39,7 @@ class EmployeeController extends Controller
             'employee_identification_number' => 'required|unique:employee',
             'name' => 'required',
             'gender' => 'required',
-            'tax_id' => 'required',
+            // 'tax_id' => 'required',
             'passport_number' => 'required|unique:employee',
             'position_id' => 'required',
             'department_id' => 'required',
@@ -48,6 +48,7 @@ class EmployeeController extends Controller
         try {
 
             $employee = $request->all();
+            $employee['tax_id'] = isset($employee['tax_id'])? $employee['tax_id'] : 0;
             Employee::insert($employee);
 
             //return successful response
@@ -63,12 +64,13 @@ class EmployeeController extends Controller
             'employee_identification_number' => 'required',
             'name' => 'required',
             'gender' => 'required',
-            'tax_id' => 'required',
+            // 'tax_id' => 'required',
             'passport_number' => 'required',
             'position_id' => 'required',
             'department_id' => 'required',
         ]);
         $employee = Employee::find($id);
+        $employee['tax_id'] = isset($employee['tax_id'])? $employee['tax_id'] : 0;
         if(is_null($employee)){
             return $this->respond('not_found');
         }

@@ -10,13 +10,13 @@ class OPDRoomController extends Controller
     // get all data
     public function all()
     {
-        $opdrooms = OPDRoom::with('doctor')->get();
+        $opdrooms = OPDRoom::with('doctor','appointment')->get();
         return $this->respond('done', $opdrooms);
     }
     // retrieve single data
     public function get($id)
     {
-        $opdroom = OPDRoom::find($id);
+        $opdroom = OPDRoom::with('doctor','appointment')->find($id);
         if(is_null($opdroom)){
             return $this->respond('not_found'); 
         }   

@@ -25,4 +25,7 @@ class OPDRoom extends Model
     public function doctor(){
         return $this->hasOne('App\Doctor','id','current_doctor_id');
     }
+    public function appointment(){
+        return $this->hasMany('App\Appointment','opd_room_id','id');
+    }
 }

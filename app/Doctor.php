@@ -21,7 +21,8 @@ class Doctor extends Model
         'phone',
         'employee_id',
         'opd_charge',
-        'ipd_charge'
+        'ipd_charge',
+        'schedule'
     ];
 
     protected $hidden = [

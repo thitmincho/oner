@@ -30,23 +30,21 @@ class PatientController extends Controller
         $this->validate($request, [
            'name' => 'required',
            'phone' => 'required',
-           'status' => 'required'
+        //    'status' => 'required'
         ]);
 
         try {
             $patient = $request->all();
 
-            if($patient['status']=='1'){
-                //validate incoming request 
-                $this->validate($request, [
-                    'date_of_birth' => 'required',
-                    'address' => 'required',
-                    'township' => 'required',
-                    'region' => 'required',
-                    'blood_group' => 'required',
-                    'gender' => 'required',
-                ]);
-            }
+            // if($patient['status']=='1'){
+            //     //validate incoming request 
+            //     $this->validate($request, [
+            //         'date_of_birth' => 'required',
+            //         'address' => 'required',
+            //         'blood_group' => 'required',
+            //         'gender' => 'required',
+            //     ]);
+            // }
             Patient::insert($patient);
             //return successful response
             return $this->respond('created', $patient);

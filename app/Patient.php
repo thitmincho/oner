@@ -19,10 +19,11 @@ class Patient extends Model
     protected $fillable = [
         'name',
         'phone',
+        'age',
         'date_of_birth',
         'address',
-        'township',
-        'region',
+        // 'township',
+        // 'region',
         'blood_group',
         'gender',
         'status',

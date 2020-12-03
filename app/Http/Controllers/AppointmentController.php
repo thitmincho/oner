@@ -42,14 +42,14 @@ class AppointmentController extends Controller
             'opd_room_id' => 'required',
             'status' => 'required',
             // 'appointment_type' => 'required',
-            'source' => 'required',
+            // 'source' => 'required',
         ]);
 
         try {
             $appointment = $request->all();
-            $_appointments = Appointment::whereBetween('created_time',[date('y-m-d').' 00:00:00%',date('y-m-d').' 23:59:59%'])->count();
+            $_appointments = Appointment::where('doctor_id',$request->get('doctor_id'))->whereBetween('created_time',[date('y-m-d').' 00:00:00%',date('y-m-d').' 23:59:59%'])->count();
             
-            $appointment['queue_ticket_number'] = str_pad($_appointments+1, 4, '0', STR_PAD_LEFT).''.date('dmy');
+            $appointment['queue_ticket_number'] = str_pad($request->get('doctor_id'), 4, '0', STR_PAD_LEFT).'-'.str_pad($_appointments+1, 4, '0', STR_PAD_LEFT).'-'.date('dmy');
             $appointment['created_user_id'] = Auth::user()->id;
             $appointment['updated_user_id'] = 0;
             Appointment::insert($appointment);
@@ -70,7 +70,7 @@ class AppointmentController extends Controller
             'opd_room_id' => 'required',
             'status' => 'required',
             // 'appointment_type' => 'required',
-            'source' => 'required',
+            // 'source' => 'required',
         ]);
         
         $appointment = Appointment::find($id);

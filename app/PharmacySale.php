@@ -25,4 +25,12 @@ class PharmacySale extends Model
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function patient(){
+        return $this->hasOne('App\Patient','id','patient_id');
+    }
+
+    public function detail(){
+        return $this->hasMany('App\PharmacySaleItem','pharmacy_sale_id','id');
+    }
 }

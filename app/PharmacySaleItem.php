@@ -24,4 +24,8 @@ class PharmacySaleItem extends Model
         'created_user_id',
         'updated_user_id',
     ];
+    
+    public function pharmacy_item(){
+        return $this->hasOne('App\PharmacyItem','id','pharmacy_item_id');
+    }
 }

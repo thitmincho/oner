@@ -5,13 +5,14 @@ use Illuminate\Http\Request;
 use App\Bill;
 use App\BillReceipt;
 use App\BillServiceItem;
+use App\PharmacySale;
 use Illuminate\Support\Facades\Auth;
 class BillController extends Controller
 {
     // get all data
     public function all()
     {
-        $bills = Bill::with('billreceipt','billitem')->get();
+        $bills = Bill::with('patient','billreceipt','billitem')->get();
         return $this->respond('done', $bills);
     }
     // retrieve single data
@@ -67,12 +68,22 @@ class BillController extends Controller
             'discharge_date_time' => 'required',
             'status' => 'required',
          ]);
-        $bill = Bill::find($id);
+        $bill = Bill::with('patient.open_pharmacy_sale')->find($id);
         if(is_null($bill)){
             return $this->respond('not_found');
         }
+
         $requestData['updated_user_id'] = Auth::user()->id;
+        
+
+        if($bill->status=="0" && isset($bill->patient->open_pharmacy_sale->id)){
+            $sale = PharmacySale::find($bill->patient->open_pharmacy_sale->id);
+            
+            $sale->status=4;
+            $sale->update();
+        }
         $bill->update($request->all());
+
         return $this->respond('done', $bill);
     }
     // remove single row

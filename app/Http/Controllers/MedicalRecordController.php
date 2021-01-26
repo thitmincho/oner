@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\MedicalRecord;
+use App\Patient;
 use Illuminate\Support\Facades\Auth;
 
 class MedicalRecordController extends Controller
@@ -10,13 +11,13 @@ class MedicalRecordController extends Controller
     // get all data
     public function all()
     {
-        $medicalrecords = MedicalRecord::all();
+        $medicalrecords = MedicalRecord::with('patient')->get();
         return $this->respond('done', $medicalrecords);
     }
     // retrieve single data
     public function get($id)
     {
-        $medicalrecord = MedicalRecord::find($id);
+        $medicalrecord = MedicalRecord::with('patient')->find($id);
         if(is_null($medicalrecord)){
             return $this->respond('not_found'); 
         }   
@@ -28,7 +29,7 @@ class MedicalRecordController extends Controller
         //validate incoming request 
         $this->validate($request, [
            'record_type' => 'required',
-           'care_id' => 'required'
+           'patient_id' => 'required'
         ]);
 
         try {
@@ -50,7 +51,7 @@ class MedicalRecordController extends Controller
         $requestData = $request->all();
         $this->validate($request, [
             'record_type' => 'required',
-            'care_id' => 'required'
+            'patient_id' => 'required'
          ]);
         $medicalrecord = MedicalRecord::find($id);
         if(is_null($medicalrecord)){
@@ -71,6 +72,12 @@ class MedicalRecordController extends Controller
         return $this->respond('removed',$medicalrecord);
 
 	}
-
+    public function getpatienthistory($patientid){
+        $medicalrecords = Patient::with('medical_record')->find($patientid);
+        if(is_null($medicalrecords)){
+            return $this->respond('not_found'); 
+        }   
+        return $this->respond('done',$medicalrecords);
+    }
     
 }

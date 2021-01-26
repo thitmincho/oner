@@ -17,8 +17,8 @@ class Doctor extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'phone',
+        // 'name',
+        // 'phone',
         'employee_id',
         'opd_charge',
         'ipd_charge',
@@ -34,7 +34,7 @@ class Doctor extends Model
         return $this->hasOne("App\Department",'id','department_id');
     }
     public function employee(){
-        return $this->hasOne("App\Employee",'id','employee_id')->select('id','department_id','name');
+        return $this->hasOne("App\Employee",'id','employee_id')->select('id','department_id','name','phone_number','position_id');
     }
     public function opd(){
         return $this->hasOne("App\OPDRoom",'current_doctor_id','id');

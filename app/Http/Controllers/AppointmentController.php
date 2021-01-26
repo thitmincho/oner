@@ -13,9 +13,9 @@ class AppointmentController extends Controller
     // get all data
     public function all()
     {
-        $appointments = Appointment::all();
+        $appointments = Appointment::with('patient','doctor.employee.department','doctor.employee.position','opd')->get();
         $patients = Patient::all();
-        $doctors = Doctor::all();
+        $doctors = Doctor::with('employee.department','employee.position')->get();
         $opds = OPDRoom::all();
         $respData['appointments'] = $appointments;
         $respData['patients'] = $patients;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PharmacyPurchase;
+use App\PharmacyPurchaseItem;
 use Illuminate\Support\Facades\Auth;
 
 class PharmacyPurchaseController extends Controller
@@ -11,13 +12,13 @@ class PharmacyPurchaseController extends Controller
     // get all data
     public function all()
     {
-        $pharmacypurchases = PharmacyPurchase::all();
+        $pharmacypurchases = PharmacyPurchase::with('supplier','detail')->get();
         return $this->respond('done', $pharmacypurchases);
     }
     // retrieve single data
     public function get($id)
     {
-        $pharmacypurchase = PharmacyPurchase::find($id);
+        $pharmacypurchase = PharmacyPurchase::with('supplier','detail')->find($id);
         if (is_null($pharmacypurchase)) {
             return $this->respond('not_found');
         }
@@ -28,18 +29,35 @@ class PharmacyPurchaseController extends Controller
     {
         //validate incoming request 
         $this->validate($request, [
-            'date' => 'required',
+            // 'date' => 'required',
             'supplier_id' => 'required',
-            'total_amount' => 'required',
+            // 'total_amount' => 'required',
             'discount' => 'required',
             'status' => 'required',
         ]);
 
         try {
             $pharmacypurchase = $request->all();
+            
+            $pdetail = $pharmacypurchase['items'];
+            unset($pharmacypurchase['items']);
+
             $pharmacypurchase['created_user_id'] = Auth::user()->id;
             $pharmacypurchase['updated_user_id'] = 0;
-            PharmacyPurchase::insert($pharmacypurchase);
+            $pharmacypurchase['date'] = "2020-11-18";
+            $PharmacyPurchaseID = PharmacyPurchase::insertGetId($pharmacypurchase);
+
+            $pharmacypurchasedetail = [];
+            foreach ($pdetail as $value) {
+                $value['pharmacy_purchase_id'] = $PharmacyPurchaseID;
+                $value['created_user_id'] = Auth::user()->id;
+                $value['updated_user_id'] = "0";
+                $pharmacypurchasedetail[] = $value;
+            }
+            // PrescriptionItem::insert($prescriptiondetail);
+
+            PharmacyPurchaseItem::insert($pharmacypurchasedetail);
+
             //return successful response
             return $this->respond('created', $pharmacypurchase);
         } catch (\Exception $e) {

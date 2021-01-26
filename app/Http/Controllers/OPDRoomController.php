@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Doctor;
 use Illuminate\Http\Request;
 use App\OPDRoom;
 use Illuminate\Support\Facades\Auth;
@@ -10,13 +12,16 @@ class OPDRoomController extends Controller
     // get all data
     public function all()
     {
-        $opdrooms = OPDRoom::with('doctor','appointment')->get();
-        return $this->respond('done', $opdrooms);
+        $opdrooms = OPDRoom::with('doctor.employee.department','doctor.employee.position')->get();
+        $doctors = Doctor::with('employee.department','employee.position')->get();
+        $response['opd_rooms'] = $opdrooms;
+        $response['doctors'] = $doctors;
+        return $this->respond('done', $response);
     }
     // retrieve single data
     public function get($id)
     {
-        $opdroom = OPDRoom::with('doctor','appointment')->find($id);
+        $opdroom = OPDRoom::with('doctor','current.patient')->find($id);
         if(is_null($opdroom)){
             return $this->respond('not_found'); 
         }   

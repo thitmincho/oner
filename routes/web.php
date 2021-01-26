@@ -113,6 +113,7 @@ $router->group([
 
     $router->post('medical_records', 'MedicalRecordController@all');
     $router->post('medical_records/add', 'MedicalRecordController@add');
+    $router->post('medical_records/patient/{patientid}', 'MedicalRecordController@getpatienthistory');
     $router->post('medical_records/{id}', 'MedicalRecordController@get');
     $router->post('medical_records/{id}/update', 'MedicalRecordController@put');
     $router->post('medical_records/{id}/remove', 'MedicalRecordController@remove');

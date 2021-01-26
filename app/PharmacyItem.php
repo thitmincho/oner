@@ -19,10 +19,20 @@ class PharmacyItem extends Model
         'name',
         'pharmacy_category_id',
         'universal_product_code',
+        'brand_name',
+        'generic_name',
+        'form',
+        'strength',
+        'packaging',
         'sale_price',
         'purchase_price',
         'supplier_id',
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function pharmacy_category(){
+        return $this->hasOne('App\PharmacyCategory','id','pharmacy_category_id');
+    }
+
 }

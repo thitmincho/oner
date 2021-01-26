@@ -28,4 +28,13 @@ class Patient extends Model
         'gender',
         'status',
     ];
+
+    public function medical_record(){
+        return $this->hasMany('App\MedicalRecord','patient_id','id');
+    }
+
+    public function open_pharmacy_sale(){
+        return $this->hasOne('App\PharmacySale','patient_id','id')->where('status','0');
+    }
+    
 }

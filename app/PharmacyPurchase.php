@@ -24,4 +24,11 @@ class PharmacyPurchase extends Model
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function supplier(){
+        return $this->hasOne('App\Supplier','id','supplier_id');
+    }
+    public function detail(){
+        return $this->hasMany('App\PharmacyPurchaseItem','pharmacy_purchase_id','id');
+    }
 }

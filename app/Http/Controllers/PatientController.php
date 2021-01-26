@@ -15,13 +15,11 @@ class PatientController extends Controller
     // retrieve single data
     public function get($id)
     {
-        $patient = Patient::find($id);
+        $patient = Patient::with('medical_record')->find($id);
         if(is_null($patient)){
             return $this->respond('not_found'); 
         }   
         return $this->respond('done',$patient);
-        
-        
     }
     // validate and add row to db
     public function add(Request $request)
@@ -30,6 +28,7 @@ class PatientController extends Controller
         $this->validate($request, [
            'name' => 'required',
            'phone' => 'required',
+           'age' => 'required',
         //    'status' => 'required'
         ]);
 
@@ -58,7 +57,8 @@ class PatientController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'phone' => 'required'
+            'phone' => 'required',
+            'age' => 'required',
          ]);
         $patient = Patient::find($id);
         if(is_null($patient)){

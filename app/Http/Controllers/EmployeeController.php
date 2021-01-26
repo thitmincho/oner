@@ -36,11 +36,12 @@ class EmployeeController extends Controller
     {
         //validate incoming request 
         $this->validate($request, [
-            'employee_identification_number' => 'required|unique:employee',
+            // 'employee_identification_number' => 'required|unique:employee',
             'name' => 'required',
-            'gender' => 'required',
+            'phone_number' => 'required',
+            // 'gender' => 'required',
             // 'tax_id' => 'required',
-            'passport_number' => 'required|unique:employee',
+            // 'passport_number' => 'required|unique:employee',
             'position_id' => 'required',
             'department_id' => 'required',
         ]);
@@ -61,11 +62,11 @@ class EmployeeController extends Controller
     public function put($id, Request $request)
     {
         $this->validate($request, [
-            'employee_identification_number' => 'required',
             'name' => 'required',
-            'gender' => 'required',
+            'phone_number' => 'required',
+            // 'gender' => 'required',
             // 'tax_id' => 'required',
-            'passport_number' => 'required',
+            // 'passport_number' => 'required|unique:employee',
             'position_id' => 'required',
             'department_id' => 'required',
         ]);

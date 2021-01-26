@@ -12,20 +12,20 @@ class DoctorController extends Controller
     // get all data
     public function all()
     {
-        $doctors = Doctor::with('department','employee')->get();
+        $doctors = Doctor::with('employee.department','employee.position')->get();
         
-        $departments = Department::all();
-        $employees = Employee::select('id','name')->get();
+        // $departments = Department::all();
+        // $employees = Employee::select('id','name')->get();
 
-        $response ['doctors'] = $doctors;
-        $response ['employees'] = $employees;
+        // $response ['doctors'] = $doctors;
+        // $response ['employees'] = $employees;
         // $response ['positions'] = $positions;
-        return $this->respond('done', $response);
+        return $this->respond('done', $doctors);
     }
     // retrieve single data
     public function get($id)
     {
-        $doctor = Doctor::with('department','employee','opd')->find($id);
+        $doctor = Doctor::with('employee.department','opd')->find($id);
         if(is_null($doctor)){
             return $this->respond('not_found'); 
         }   
@@ -38,8 +38,9 @@ class DoctorController extends Controller
     {
         //validate incoming request 
         $this->validate($request, [
-           'name' => 'required',
-           'phone' => 'required'
+            'employee_id' => 'required',
+        //    'name' => 'required',
+        //    'phone' => 'required'
         ]);
 
         try {
@@ -56,14 +57,21 @@ class DoctorController extends Controller
     public function put($id, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'phone' => 'required'
+            'employee_id' => 'required',
          ]);
         $doctor = Doctor::find($id);
+        
         if(is_null($doctor)){
             return $this->respond('not_found');
         }
         $doctor->update($request->all());
+        // if($doctor->employee_id!=null){
+        //     $employee = Employee::find($doctor->employee->id);
+        //     $employee->update(['name'=>$doctor['name']]);
+        // }
+
+        // $doctor = Doctor::with('employee')->find($id);
+        
         return $this->respond('done', $doctor);
     }
     // remove single row

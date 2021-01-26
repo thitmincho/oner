@@ -29,7 +29,7 @@ class Employee extends Model
         'live_with_parent',
         'live_with_spouse_parent',
         'phone_number',
-        'emergency_contact_hone',
+        'emergency_contact_phone',
         'date_of_birth',
         'nrc_number',
         'bank_account_number',

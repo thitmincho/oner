@@ -16,7 +16,7 @@ class PharmacyItemController extends Controller
     // retrieve single data
     public function get($id)
     {
-        $pharmacyitem = PharmacyItem::find($id);
+        $pharmacyitem = PharmacyItem::with('pharmacy_category')->find($id);
         if(is_null($pharmacyitem)){
             return $this->respond('not_found'); 
         }   

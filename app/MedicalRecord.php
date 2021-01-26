@@ -18,10 +18,23 @@ class MedicalRecord extends Model
      */
     protected $fillable = [
         'record_type',
-        'care_id',
-        'doctor_notes',
+        'patient_id',
+        'weight',
+        'height',
+        'blood_preasure',
+        'temperature',
+        'pulse_rate',
+        'respiratory_rate',        
+        'doctor_accessment',
+        'diagnosis',
+        'investigation',
         'attachment',
+        'treatment_procedures',
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function patient(){
+        return $this->hasOne('App\Patient','id','patient_id');
+    }
 }

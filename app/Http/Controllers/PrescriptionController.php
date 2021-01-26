@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Prescription;
+use App\PrescriptionItem;
 use Illuminate\Support\Facades\Auth;
 
 class PrescriptionController extends Controller
@@ -10,13 +11,13 @@ class PrescriptionController extends Controller
     // get all data
     public function all()
     {
-        $prescriptions = Prescription::all();
+        $prescriptions = Prescription::with('patient','doctor')->get();
         return $this->respond('done', $prescriptions);
     }
     // retrieve single data
     public function get($id)
     {
-        $prescription = Prescription::find($id);
+        $prescription = Prescription::with('patient','doctor','prescription_item')->find($id);
         if(is_null($prescription)){
             return $this->respond('not_found'); 
         }   
@@ -26,17 +27,34 @@ class PrescriptionController extends Controller
     public function add(Request $request)
     {
         //validate incoming request 
+        // $this->validate($request, [
+        //    'medical_record_id' => 'required',
+        //    'pharmacy_item_id' => 'required',
+        //    'quantity' => 'required',   
+        // ]);
         $this->validate($request, [
-           'medical_record_id' => 'required',
-           'pharmacy_item_id' => 'required',
-           'quantity' => 'required',   
+            'medical_record_id' => 'required',
+            'patient_id' => 'required',
+            'doctor_id' => 'required',
         ]);
+
 
         try {
             $prescription = $request->all();
+            $predetail = $prescription['items'];
+            unset($prescription['items']);
             $prescription['created_user_id'] = Auth::user()->id;
             $prescription['updated_user_id'] = 0;
-            Prescription::insert($prescription);
+            
+            $PrescriptionID = Prescription::insertGetId($prescription);
+
+            $prescriptiondetail = [];
+            foreach ($predetail as $value) {
+                $value['prescription_id'] = $PrescriptionID;
+                $prescriptiondetail[] = $value;
+            }
+            PrescriptionItem::insert($prescriptiondetail);
+            
             //return successful response
             return $this->respond('created', $prescription);
         } catch (\Exception $e) {
@@ -48,11 +66,17 @@ class PrescriptionController extends Controller
     public function put($id, Request $request)
     {
         $requestData = $request->all();
+        // $this->validate($request, [
+        //     'medical_record_id' => 'required',
+        //     'pharmacy_item_id' => 'required',
+        //     'quantity' => 'required',
+        //  ]);
         $this->validate($request, [
             'medical_record_id' => 'required',
-            'pharmacy_item_id' => 'required',
-            'quantity' => 'required',
-         ]);
+            'patient_id' => 'required',
+            'doctor_id' => 'required',
+        ]);
+
         $prescription = Prescription::find($id);
         if(is_null($prescription)){
             return $this->respond('not_found');

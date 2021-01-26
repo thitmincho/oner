@@ -16,9 +16,9 @@ class BillServiceItem extends Model
      */
     protected $fillable = [
         'bill_id',
-        'service_item_id',
+        'service_id',
+        'service_type',
         'charge',
-        'charge_type',
     ];
 
     public function serviceitem(){

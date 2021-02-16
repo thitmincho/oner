@@ -12,13 +12,13 @@ class BillController extends Controller
     // get all data
     public function all()
     {
-        $bills = Bill::with('patient','billreceipt','billitem')->get();
+        $bills = Bill::with('patient','billreceipt','billitem','payment')->get();
         return $this->respond('done', $bills);
     }
     // retrieve single data
     public function get($id)
     {
-        $bill = Bill::with('billreceipt','billitem.serviceitem.category')->find($id);
+        $bill = Bill::with('patient','billreceipt','billitem.serviceitem.category','payment')->find($id);
         if(is_null($bill)){
             return $this->respond('not_found'); 
         }   
@@ -59,13 +59,13 @@ class BillController extends Controller
         $this->validate($request, [
             'patient_id' => 'required',
             'patient_type' => 'required',
-            'inpatient_care_id' => 'required',
-            'emergency_care_id' => 'required',
-            'appointment_id' => 'required',
+            // 'inpatient_care_id' => 'required',
+            // 'emergency_care_id' => 'required',
+            // 'appointment_id' => 'required',
             'bill_date_time' => 'required',
             'discount' => 'required',
             'tax_amount' => 'required',
-            'discharge_date_time' => 'required',
+            // 'discharge_date_time' => 'required',
             'status' => 'required',
          ]);
         $bill = Bill::with('patient.open_pharmacy_sale')->find($id);
@@ -77,8 +77,9 @@ class BillController extends Controller
         
 
         if($bill->status=="0" && isset($bill->patient->open_pharmacy_sale->id)){
-            $sale = PharmacySale::find($bill->patient->open_pharmacy_sale->id);
             
+            $sale = PharmacySale::find($bill->patient->open_pharmacy_sale->id);
+            // print_r($bill->patient->open_pharmacy_sale->id);
             $sale->status=4;
             $sale->update();
         }

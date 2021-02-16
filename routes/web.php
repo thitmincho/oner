@@ -261,5 +261,10 @@ $router->group([
     $router->post('bill_service_receipt/{id}', 'BillServiceReceiptController@get');
     $router->post('bill_service_receipt/{id}/update', 'BillServiceReceiptController@put');
     $router->post('bill_service_receipt/{id}/remove', 'BillServiceReceiptController@remove');
-    
+   
+    $router->post('payments', 'PaymentController@all');
+    $router->post('payments/add', 'PaymentController@add');
+    $router->post('payments/{id}', 'PaymentController@get');
+    $router->post('payments/{id}/update', 'PaymentController@put');
+    $router->post('payments/{id}/remove', 'PaymentController@remove');
 });

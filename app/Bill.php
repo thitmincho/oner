@@ -43,4 +43,7 @@ class Bill extends Model
     public function salebill(){
         return $this->hasOne('App\BillReceipt','bill_id','id');
     }
+    public function payment(){
+        return $this->hasMany('App\Payment','bill_id','id');
+    }
 }

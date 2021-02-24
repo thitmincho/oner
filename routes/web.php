@@ -267,4 +267,17 @@ $router->group([
     $router->post('payments/{id}', 'PaymentController@get');
     $router->post('payments/{id}/update', 'PaymentController@put');
     $router->post('payments/{id}/remove', 'PaymentController@remove');
+
+    $router->post('pharmacy_inventory_transactions', 'PharmacyInventoryTransactionController@all');
+    $router->post('pharmacy_inventory_transactions/add', 'PharmacyInventoryTransactionController@add');
+    $router->post('pharmacy_inventory_transactions/{id}', 'PharmacyInventoryTransactionController@get');
+    $router->post('pharmacy_inventory_transactions/{id}/update', 'PharmacyInventoryTransactionController@put');
+    $router->post('pharmacy_inventory_transactions/{id}/remove', 'PharmacyInventoryTransactionController@remove');
+
+    $router->post('pharmacy_unit_conversions', 'PharmacyUnitConversionController@all');
+    $router->post('pharmacy_unit_conversions/add', 'PharmacyUnitConversionController@add');
+    $router->post('pharmacy_unit_conversions/{id}', 'PharmacyUnitConversionController@get');
+    $router->post('pharmacy_unit_conversions/{id}/update', 'PharmacyUnitConversionController@put');
+    $router->post('pharmacy_unit_conversions/{id}/remove', 'PharmacyUnitConversionController@remove');
+    
 });

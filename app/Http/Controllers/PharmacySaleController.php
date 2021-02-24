@@ -20,7 +20,7 @@ class PharmacySaleController extends Controller
     // retrieve single data
     public function get($id)
     {
-        $pharmacysale = PharmacySale::with('detail.pharmacy_item')->find($id);
+        $pharmacysale = PharmacySale::with('patient','detail.pharmacy_item')->find($id);
         if (is_null($pharmacysale)) {
             return $this->respond('not_found');
         }

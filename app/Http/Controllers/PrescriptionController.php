@@ -11,13 +11,13 @@ class PrescriptionController extends Controller
     // get all data
     public function all()
     {
-        $prescriptions = Prescription::with('patient','doctor')->get();
+        $prescriptions = Prescription::with('patient','doctor.employee')->get();
         return $this->respond('done', $prescriptions);
     }
     // retrieve single data
     public function get($id)
     {
-        $prescription = Prescription::with('patient','doctor','prescription_item')->find($id);
+        $prescription = Prescription::with('patient','doctor.employee','prescription_item.pharmacy_item')->find($id);
         if(is_null($prescription)){
             return $this->respond('not_found'); 
         }   

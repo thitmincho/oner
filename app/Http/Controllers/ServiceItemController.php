@@ -28,11 +28,10 @@ class ServiceItemController extends Controller
     {
         //validate incoming request 
         $this->validate($request, [
-            'service_category_id' => 'required',
+            'service_type' => 'required',
             'name' => 'required',
             'description' => 'required',
-            'charge_type' => 'required',
-            'standard_charge' => 'required',
+            'charge' => 'required',
         ]);
 
         try {

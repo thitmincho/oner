@@ -20,5 +20,9 @@ class PrescriptionItem extends Model
         'pharmacy_item_id',
         'instruction',
     ];
+
+    public function pharmacy_item(){
+        return $this->hasOne('App\PharmacyItem','id','pharmacy_item_id');
+    }
     
 }

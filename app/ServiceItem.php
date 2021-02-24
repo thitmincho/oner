@@ -16,14 +16,13 @@ class ServiceItem extends Model
      * @var array
      */
     protected $fillable = [
-        'service_category_id',
+        'service_type',
         'name',
         'description',
-        'charge_type',
-        'standard_charge'
+        'charge',
     ];
 
-    public function category(){
-        return $this->hasOne('App\ServiceCategory','id','service_category_id');
-    }
+    // public function category(){
+    //     return $this->hasOne('App\ServiceCategory','id','service_category_id');
+    // }
 }

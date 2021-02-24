@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PharmacyInventory extends Model 
+class PharmacyUnitConversion extends Model 
 {    
-    protected $table = 'pharmacy_inventory';
+    protected $table = 'pharmacy_unit_conversion';
     const CREATED_AT = 'created_time';
     const UPDATED_AT = 'updated_time';
     
@@ -17,10 +17,10 @@ class PharmacyInventory extends Model
      */
     protected $fillable = [
         'pharmacy_item_id',
-        'balance',
-        'average_price',
-        'purchasing_price',
-        
+        'sku_name',
+        'sku_quantity',
+        'po_uom_name',
+        'po_uom_quantity',
         'created_user_id',
         'updated_user_id',
     ];

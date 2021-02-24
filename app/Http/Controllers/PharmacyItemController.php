@@ -10,7 +10,7 @@ class PharmacyItemController extends Controller
     // get all data
     public function all()
     {
-        $pharmacyitems = PharmacyItem::all();
+        $pharmacyitems = PharmacyItem::with('pharmacy_category')->get();
         return $this->respond('done', $pharmacyitems);
     }
     // retrieve single data

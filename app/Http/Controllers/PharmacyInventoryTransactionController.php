@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Inventory;
 use Illuminate\Http\Request;
 use App\PharmacyInventoryTransaction;
 use Illuminate\Support\Facades\Auth;
@@ -10,13 +12,13 @@ class PharmacyInventoryTransactionController extends Controller
     // get all data
     public function all()
     {
-        $pinventorytransactions = PharmacyInventoryTransaction::all();
+        $pinventorytransactions = PharmacyInventoryTransaction::with('invnetory')->get();
         return $this->respond('done', $pinventorytransactions);
     }
     // retrieve single data
     public function get($id)
     {
-        $pinventorytransaction = PharmacyInventoryTransaction::find($id);
+        $pinventorytransaction = PharmacyInventoryTransaction::with('invnetory')->find($id);
         if(is_null($pinventorytransaction)){
             return $this->respond('not_found'); 
         }   
@@ -27,7 +29,8 @@ class PharmacyInventoryTransactionController extends Controller
     {
         //validate incoming request 
         $this->validate($request, [
-            'pharmacy_item_id'=> 'required',
+            'inventory_id'=> 'required',
+            // 'pharmacy_item_id'=> 'required',
             'transaction_type'=> 'required',
             'quantity'=> 'required',
             'moving_average_price'=> 'required',
@@ -35,16 +38,27 @@ class PharmacyInventoryTransactionController extends Controller
             'selling_price'=> 'required',
             'opening_balance'=> 'required',
             'closing_balance'=> 'required',
-            'expired_date'=> 'required',
+            // 'expired_date'=> 'required',
             'note'=> 'required',
-            
         ]);
 
         try {
             $pinventorytransaction = $request->all();
             $pinventorytransaction['created_user_id'] = Auth::user()->id;
             $pinventorytransaction['updated_user_id'] = 0;
+            if($pinventorytransaction['transaction_type']=="in"){
+                $_inventory = Inventory::find($pinventorytransaction['inventory_id']);
+                $_inventory->balance += $pinventorytransaction['quantity'];
+                $_inventory->save();
+            }
+            if($pinventorytransaction['transaction_type']=="out"){
+                $_inventory = Inventory::find($pinventorytransaction['inventory_id']);
+                $_inventory->balance -= $pinventorytransaction['quantity'];
+                $_inventory->save();
+            }
+            
             PharmacyInventoryTransaction::insert($pinventorytransaction);
+            
             //return successful response
             return $this->respond('created', $pinventorytransaction);
         } catch (\Exception $e) {
@@ -57,6 +71,7 @@ class PharmacyInventoryTransactionController extends Controller
     {
         $requestData = $request->all();
         $this->validate($request, [
+            'inventory_id'=> 'required',
             'pharmacy_item_id'=> 'required',
             'transaction_type'=> 'required',
             'quantity'=> 'required',

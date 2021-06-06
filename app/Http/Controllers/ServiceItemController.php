@@ -29,6 +29,7 @@ class ServiceItemController extends Controller
         //validate incoming request 
         $this->validate($request, [
             'service_type' => 'required',
+            'relation_id' => 'required',
             'name' => 'required',
             'description' => 'required',
             'charge' => 'required',
@@ -48,7 +49,8 @@ class ServiceItemController extends Controller
     public function put($id, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required'
+            'service_type' => 'required',
+            'relation_id' => 'required',
          ]);
         $serviceitem = ServiceItem::find($id);
         if(is_null($serviceitem)){

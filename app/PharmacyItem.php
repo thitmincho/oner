@@ -23,9 +23,13 @@ class PharmacyItem extends Model
         'generic_name',
         'form',
         'strength',
-        'packaging',
-        'sale_price',
-        'purchase_price',
+        'uom',
+        'po_uom',
+        'unit_conversion_id',
+        'abbr',
+        // 'packaging',
+        // 'sale_price',
+        // 'purchase_price',
         'supplier_id',
         'created_user_id',
         'updated_user_id',
@@ -33,6 +37,18 @@ class PharmacyItem extends Model
 
     public function pharmacy_category(){
         return $this->hasOne('App\PharmacyCategory','id','pharmacy_category_id');
+    }
+
+    public function pharmacy_unit_conversion(){
+        return $this->hasOne('App\PharmacyUnitConversion','pharmacy_item_id','id');
+    }
+
+    public function pharmacy_inventory(){
+        return $this->hasOne('App\PharmacyInventory','pharmacy_item_id','id');
+    }
+
+    public function service_item(){
+        return $this->hasOne('App\ServiceItem','relation_id','id')->where('service_type','pharmacy_item');
     }
 
 }

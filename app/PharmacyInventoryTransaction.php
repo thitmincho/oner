@@ -16,17 +16,26 @@ class PharmacyInventoryTransaction extends Model
      * @var array
      */
     protected $fillable = [
-        'pharmacy_item_id',
+        'inventory_id',
+        // 'pharmacy_item_id',
+        'relation_id',
+        'relation_type',
         'transaction_type',
+        'type',
         'quantity',
+        'unit',
         'moving_average_price',
         'purchasing_price',
         'selling_price',
         'opening_balance',
         'closing_balance',
-        'expired_date',
+        // 'expired_date',
         'note',
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function invnetory(){
+        return $this->hasOne('App\Inventory','id','inventory_id');
+    }
 }

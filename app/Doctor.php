@@ -20,6 +20,7 @@ class Doctor extends Model
         // 'name',
         // 'phone',
         'employee_id',
+        // 'opd_room_id',
         'opd_charge',
         'ipd_charge',
         'schedule'

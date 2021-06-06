@@ -12,13 +12,27 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    // return $router->app->version();
+    return json_encode([
+        'pharmacy_item_id'=> 'required',
+        'transaction_type'=> 'required',
+        'quantity'=> 'required',
+        'moving_average_price'=> 'required',
+        'purchasing_price'=> 'required',
+        'selling_price'=> 'required',
+        'opening_balance'=> 'required',
+        'closing_balance'=> 'required',
+        'expired_date'=> 'required',
+        'note'=> 'required',
+        
+    ]);
 });
 // API route group
 $router->group([
     // 'middleware' => 'api',
     'prefix' => 'api'
 ], function () use ($router) {
+    $router->post('bulk_delete', 'ExampleController@bulk_delete');
     $router->post('registers', 'AuthController@register');
     $router->post('login', 'AuthController@login');
     
@@ -104,6 +118,60 @@ $router->group([
     $router->post('patients/{id}', 'PatientController@get');
     $router->post('patients/{id}/update', 'PatientController@put');
     $router->post('patients/{id}/remove', 'PatientController@remove');
+    
+    $router->post('emergency_patients', 'EmergencyPatientController@all');
+    $router->post('emergency_patients/add', 'EmergencyPatientController@add');
+    $router->post('emergency_patients/{id}', 'EmergencyPatientController@get');
+    $router->post('emergency_patients/{id}/update', 'EmergencyPatientController@put');
+    $router->post('emergency_patients/{id}/remove', 'EmergencyPatientController@remove');
+
+    $router->post('emergency_beds', 'EmergencyBedController@all');
+    $router->post('emergency_beds/add', 'EmergencyBedController@add');
+    $router->post('emergency_beds/{id}', 'EmergencyBedController@get');
+    $router->post('emergency_beds/{id}/update', 'EmergencyBedController@put');
+    $router->post('emergency_beds/{id}/remove', 'EmergencyBedController@remove');
+
+    $router->post('emergency_rooms', 'EmergencyRoomController@all');
+    $router->post('emergency_rooms/add', 'EmergencyRoomController@add');
+    $router->post('emergency_rooms/{id}', 'EmergencyRoomController@get');
+    $router->post('emergency_rooms/{id}/update', 'EmergencyRoomController@put');
+    $router->post('emergency_rooms/{id}/remove', 'EmergencyRoomController@remove');
+
+    $router->post('emergency_records', 'EmergencyRecordController@all');
+    $router->post('emergency_records/add', 'EmergencyRecordController@add');
+    $router->post('emergency_records/{id}', 'EmergencyRecordController@get');
+    $router->post('emergency_records/{id}/update', 'EmergencyRecordController@put');
+    $router->post('emergency_records/{id}/remove', 'EmergencyRecordController@remove');
+
+    $router->post('investigation_categorys', 'InvestigationCategoryController@all');
+    $router->post('investigation_categorys/add', 'InvestigationCategoryController@add');
+    $router->post('investigation_categorys/{id}', 'InvestigationCategoryController@get');
+    $router->post('investigation_categorys/{id}/update', 'InvestigationCategoryController@put');
+    $router->post('investigation_categorys/{id}/remove', 'InvestigationCategoryController@remove');
+
+    $router->post('investigation_items', 'InvestigationItemController@all');
+    $router->post('investigation_items/add', 'InvestigationItemController@add');
+    $router->post('investigation_items/{id}', 'InvestigationItemController@get');
+    $router->post('investigation_items/{id}/update', 'InvestigationItemController@put');
+    $router->post('investigation_items/{id}/remove', 'InvestigationItemController@remove');
+
+    $router->post('investigation_requests', 'InvestigationRequestController@all');
+    $router->post('investigation_requests/add', 'InvestigationRequestController@add');
+    $router->post('investigation_requests/{id}', 'InvestigationRequestController@get');
+    $router->post('investigation_requests/{id}/update', 'InvestigationRequestController@put');
+    $router->post('investigation_requests/{id}/remove', 'InvestigationRequestController@remove');
+
+    $router->post('investigation_request_items', 'InvestigationRequestItemController@all');
+    $router->post('investigation_request_items/add', 'InvestigationRequestItemController@add');
+    $router->post('investigation_request_items/{id}', 'InvestigationRequestItemController@get');
+    $router->post('investigation_request_items/{id}/update', 'InvestigationRequestItemController@put');
+    $router->post('investigation_request_items/{id}/remove', 'InvestigationRequestItemController@remove');
+
+    $router->post('investigation_departments', 'InvestigationDepartmentController@all');
+    $router->post('investigation_departments/add', 'InvestigationDepartmentController@add');
+    $router->post('investigation_departments/{id}', 'InvestigationDepartmentController@get');
+    $router->post('investigation_departments/{id}/update', 'InvestigationDepartmentController@put');
+    $router->post('investigation_departments/{id}/remove', 'InvestigationDepartmentController@remove');
 
     $router->post('appointments', 'AppointmentController@all');
     $router->post('appointments/add', 'AppointmentController@add');
@@ -268,16 +336,61 @@ $router->group([
     $router->post('payments/{id}/update', 'PaymentController@put');
     $router->post('payments/{id}/remove', 'PaymentController@remove');
 
-    $router->post('pharmacy_inventory_transactions', 'PharmacyInventoryTransactionController@all');
-    $router->post('pharmacy_inventory_transactions/add', 'PharmacyInventoryTransactionController@add');
-    $router->post('pharmacy_inventory_transactions/{id}', 'PharmacyInventoryTransactionController@get');
-    $router->post('pharmacy_inventory_transactions/{id}/update', 'PharmacyInventoryTransactionController@put');
-    $router->post('pharmacy_inventory_transactions/{id}/remove', 'PharmacyInventoryTransactionController@remove');
+    $router->post('inventory_transactions', 'PharmacyInventoryTransactionController@all');
+    $router->post('inventory_transactions/add', 'PharmacyInventoryTransactionController@add');
+    $router->post('inventory_transactions/{id}', 'PharmacyInventoryTransactionController@get');
+    $router->post('inventory_transactions/{id}/update', 'PharmacyInventoryTransactionController@put');
+    $router->post('inventory_transactions/{id}/remove', 'PharmacyInventoryTransactionController@remove');
 
-    $router->post('pharmacy_unit_conversions', 'PharmacyUnitConversionController@all');
-    $router->post('pharmacy_unit_conversions/add', 'PharmacyUnitConversionController@add');
-    $router->post('pharmacy_unit_conversions/{id}', 'PharmacyUnitConversionController@get');
-    $router->post('pharmacy_unit_conversions/{id}/update', 'PharmacyUnitConversionController@put');
-    $router->post('pharmacy_unit_conversions/{id}/remove', 'PharmacyUnitConversionController@remove');
+    $router->post('inventory_unit_conversion', 'PharmacyUnitConversionController@all');
+    $router->post('inventory_unit_conversion/add', 'PharmacyUnitConversionController@add');
+    $router->post('inventory_unit_conversion/{id}', 'PharmacyUnitConversionController@get');
+    $router->post('inventory_unit_conversion/{id}/update', 'PharmacyUnitConversionController@put');
+    $router->post('inventory_unit_conversion/{id}/remove', 'PharmacyUnitConversionController@remove');
+
+    $router->post('lab_analyzers', 'LabAnalyzerController@all');
+    $router->post('lab_analyzers/add', 'LabAnalyzerController@add');
+    $router->post('lab_analyzers/{id}', 'LabAnalyzerController@get');
+    $router->post('lab_analyzers/{id}/update', 'LabAnalyzerController@put');
+    $router->post('lab_analyzers/{id}/remove', 'LabAnalyzerController@remove');
+
+    $router->post('lab_items', 'LabItemController@all');
+    $router->post('lab_items/add', 'LabItemController@add');
+    $router->post('lab_items/{id}', 'LabItemController@get');
+    $router->post('lab_items/{id}/update', 'LabItemController@put');
+    $router->post('lab_items/{id}/remove', 'LabItemController@remove');
+
+    $router->post('general_items', 'GeneralItemController@all');
+    $router->post('general_items/add', 'GeneralItemController@add');
+    $router->post('general_items/{id}', 'GeneralItemController@get');
+    $router->post('general_items/{id}/update', 'GeneralItemController@put');
+    $router->post('general_items/{id}/remove', 'GeneralItemController@remove');
+
+    $router->post('store_locations', 'StoreLocationController@all');
+    $router->post('store_locations/add', 'StoreLocationController@add');
+    $router->post('store_locations/{id}', 'StoreLocationController@get');
+    $router->post('store_locations/{id}/update', 'StoreLocationController@put');
+    $router->post('store_locations/{id}/remove', 'StoreLocationController@remove'); 
+
+    $router->post('inventorys', 'InventoryController@all');
+    $router->post('inventorys/add', 'InventoryController@add');
+    $router->post('inventorys/{id}', 'InventoryController@get');
+    $router->post('inventorys/{id}/update', 'InventoryController@put');
+    $router->post('inventorys/{id}/remove', 'InventoryController@remove');
+
+    // InvestigationItemRangeController
+    $router->post('investigation_item_ranges', 'InvestigationItemRangeController@all');
+    $router->post('investigation_item_ranges/add', 'InvestigationItemRangeController@add');
+    $router->post('investigation_item_ranges/{id}', 'InvestigationItemRangeController@get');
+    $router->post('investigation_item_ranges/{id}/update', 'InvestigationItemRangeController@put');
+    $router->post('investigation_item_ranges/{id}/remove', 'InvestigationItemRangeController@remove');
     
+    $router->post('transaction_types', 'TransactionTypeController@all');
+    $router->post('transaction_types/add', 'TransactionTypeController@add');
+    $router->post('transaction_types/{id}', 'TransactionTypeController@get');
+    $router->post('transaction_types/{id}/update', 'TransactionTypeController@put');
+    $router->post('transaction_types/{id}/remove', 'TransactionTypeController@remove');
+    // POS
+    $router->post('inventory_get_all', 'InventoryController@getall');
+    $router->post('expiry_items', 'InventoryController@expiryitems');
 });

@@ -15,11 +15,17 @@ class PharmacySale extends Model
      *
      * @var array
      */
+    // {"patient_id":"6","doctor_id":"9","buyer_name":"name(Optional)","buyer_nrc":"nrc(Optional)","buyer_address":"address(Optional)","remark":"remark(Optional)","status":"open/paid/close"}
+
     protected $fillable = [
         'date',
         'patient_id',
+        'doctor_id',
+        'buyer_name',
+        'buyer_nrc',
+        'buyer_address',
         'total_amount',
-        'discount',
+        // 'discount',
         'remark',
         'status',
         'created_user_id',
@@ -28,6 +34,10 @@ class PharmacySale extends Model
 
     public function patient(){
         return $this->hasOne('App\Patient','id','patient_id');
+    }
+
+    public function doctor(){
+        return $this->hasOne('App\Doctor','id','doctor_id');
     }
 
     public function detail(){

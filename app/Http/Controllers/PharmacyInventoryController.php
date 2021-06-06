@@ -28,15 +28,10 @@ class PharmacyInventoryController extends Controller
         //validate incoming request 
         $this->validate($request, [
             'pharmacy_item_id'=>'required',
-            'pharmacy_warehouse_id'=>'required',
-            'opening_balance'=>'required',
-            'closing_balance'=>'required',
-            'economic_order_quantity'=>'required',
-            'reorder_level'=>'required',
-            'minimum'=>'required',
-            'maximum'=>'required',
-            'batch'=>'required',
-            'expired_date'=>'required',
+            'balance'=>'required',
+            'average_price'=>'required',
+            'purchasing_price'=>'required',
+            
         ]);
 
         try {
@@ -57,15 +52,10 @@ class PharmacyInventoryController extends Controller
         $requestData = $request->all();
         $this->validate($request, [
             'pharmacy_item_id'=>'required',
-            'pharmacy_warehouse_id'=>'required',
-            'opening_balance'=>'required',
-            'closing_balance'=>'required',
-            'economic_order_quantity'=>'required',
-            'reorder_level'=>'required',
-            'minimum'=>'required',
-            'maximum'=>'required',
-            'batch'=>'required',
-            'expired_date'=>'required',
+            'balance'=>'required',
+            'average_price'=>'required',
+            'purchasing_price'=>'required',
+            
         ]);
         $pharmacyinventory = PharmacyInventory::find($id);
         if(is_null($pharmacyinventory)){

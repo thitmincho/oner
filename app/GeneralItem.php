@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ServiceItem extends Model 
+class GeneralItem extends Model 
 {    
-    protected $table = 'service_item';
+    protected $table = 'general_items';
     
     public $timestamps = false;
     
@@ -16,14 +16,11 @@ class ServiceItem extends Model
      * @var array
      */
     protected $fillable = [
-        'service_type',
-        'relation_id',
         'name',
         'description',
-        'charge',
+        'uom',
+        'po_uom',
+        'unit_conversion_id',
     ];
-
-    // public function category(){
-    //     return $this->hasOne('App\ServiceCategory','id','service_category_id');
-    // }
+   
 }

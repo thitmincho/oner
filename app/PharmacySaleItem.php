@@ -15,10 +15,14 @@ class PharmacySaleItem extends Model
      *
      * @var array
      */
+    // {"pharmacy_sale_id":"","pharmacy_item_id":"1","quantity":"2","instruction":"instruction","type":"return","sale_price":"0","amount":0}
+
     protected $fillable = [
         'pharmacy_sale_id',
         'pharmacy_item_id',
         'quantity',
+        'instruction',
+        'type',
         'sale_price',
         'amount',
         'created_user_id',

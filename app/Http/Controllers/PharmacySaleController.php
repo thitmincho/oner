@@ -14,13 +14,13 @@ class PharmacySaleController extends Controller
     // get all data
     public function all()
     {
-        $pharmacysales = PharmacySale::with('patient', 'detail')->get();
+        $pharmacysales = PharmacySale::with('patient','doctor.employee', 'detail')->get();
         return $this->respond('done', $pharmacysales);
     }
     // retrieve single data
     public function get($id)
     {
-        $pharmacysale = PharmacySale::with('patient','detail.pharmacy_item')->find($id);
+        $pharmacysale = PharmacySale::with('patient','doctor.employee','detail.pharmacy_item')->find($id);
         if (is_null($pharmacysale)) {
             return $this->respond('not_found');
         }
@@ -33,11 +33,11 @@ class PharmacySaleController extends Controller
         $this->validate($request, [
             // 'date' => 'required',
             'patient_id' => 'required',
-            'total_amount' => 'required',
-            'discount' => 'required',
+            // 'total_amount' => 'required',
+            // 'discount' => 'required',
             'remark' => 'required',
             'status' => 'required',
-            'items' => 'required'
+            // 'items' => 'required'
         ]);
 
         try {
@@ -57,6 +57,7 @@ class PharmacySaleController extends Controller
                 $value['pharmacy_sale_id'] = $PharmacySaleID;
                 $value['created_user_id'] = Auth::user()->id;
                 $value['updated_user_id'] = "0";
+                unset($value['inventory_id']);
                 $pharmacysaledetail[] = $value;
                 $saleitemAmount = $value['amount'] + $saleitemAmount;
             }
@@ -104,6 +105,7 @@ class PharmacySaleController extends Controller
 
             Bill::insert($bill);
             //return successful response
+            $pharmacysale['id'] = $PharmacySaleID;
             return $this->respond('created', $pharmacysale);
         } catch (\Exception $e) {
             //return error message
@@ -117,8 +119,8 @@ class PharmacySaleController extends Controller
         $this->validate($request, [
             'date' => 'required',
             'patient_id' => 'required',
-            'total_amount' => 'required',
-            'discount' => 'required',
+            // 'total_amount' => 'required',
+            // 'discount' => 'required',
             'remark' => 'required',
             'status' => 'required',
         ]);

@@ -10,13 +10,13 @@ class PharmacyItemController extends Controller
     // get all data
     public function all()
     {
-        $pharmacyitems = PharmacyItem::with('pharmacy_category')->get();
+        $pharmacyitems = PharmacyItem::with('pharmacy_category','pharmacy_unit_conversion','pharmacy_inventory','service_item')->get();
         return $this->respond('done', $pharmacyitems);
     }
     // retrieve single data
     public function get($id)
     {
-        $pharmacyitem = PharmacyItem::with('pharmacy_category')->find($id);
+        $pharmacyitem = PharmacyItem::with('pharmacy_category','pharmacy_unit_conversion','pharmacy_inventory','service_item')->find($id);
         if(is_null($pharmacyitem)){
             return $this->respond('not_found'); 
         }   

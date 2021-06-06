@@ -39,7 +39,8 @@ class PharmacySaleItemController extends Controller
             $pharmacysaleitem = $request->all();
             $pharmacysaleitem['created_user_id'] = Auth::user()->id;
             $pharmacysaleitem['updated_user_id'] = 0;
-            PharmacySaleItem::insert($pharmacysaleitem);
+            $ID = PharmacySaleItem::insertGetId($pharmacysaleitem);
+            $pharmacysaleitem['id'] =$ID;
             //return successful response
             return $this->respond('created', $pharmacysaleitem);
         } catch (\Exception $e) {

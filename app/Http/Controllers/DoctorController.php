@@ -12,7 +12,7 @@ class DoctorController extends Controller
     // get all data
     public function all()
     {
-        $doctors = Doctor::with('employee.department','employee.position')->get();
+        $doctors = Doctor::with('employee.department','employee.position','opd')->get();
         
         // $departments = Department::all();
         // $employees = Employee::select('id','name')->get();

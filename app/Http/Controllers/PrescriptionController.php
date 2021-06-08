@@ -95,4 +95,8 @@ class PrescriptionController extends Controller
 		Prescription::destroy($id);
         return $this->respond('removed',$prescription);
 	}
+    public function getbypid($pid){
+        $prescriptions = Prescription::with('patient','doctor.employee')->where('patient_id',$pid)->get();
+        return $this->respond('done', $prescriptions);
+    }
 }

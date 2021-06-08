@@ -24,5 +24,9 @@ class BillServiceItem extends Model
     public function serviceitem(){
         return $this->hasOne('App\ServiceItem','id','service_item_id');
     }
+    public function service_used_item(){
+        return $this->hasOne('App\PatientServiceUsedRecord','id','service_item_id');
+    }
+    
     
 }

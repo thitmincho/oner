@@ -63,47 +63,45 @@ class PharmacySaleController extends Controller
             }
             PharmacySaleItem::insert($pharmacysaledetail);
 
-            $filterBill = Bill::with('billitem')->where('patient_id', $pharmacysale['patient_id'])->where('status', '1')->first();
+            // $filterBill = Bill::with('billitem')->where('patient_id', $pharmacysale['patient_id'])->where('status', '1')->first();
 
-            $bill['patient_id'] = $pharmacysale['patient_id'];
-            $bill['status'] = "1";
-            $bill['bill_date_time'] = $pharmacysale['date'];
-            $bill['created_user_id'] = Auth::user()->id;
-            $bill['updated_user_id'] = 0;
+            // $bill['patient_id'] = $pharmacysale['patient_id'];
+            // $bill['status'] = "1";
+            // $bill['bill_date_time'] = $pharmacysale['date'];
+            // $bill['created_user_id'] = Auth::user()->id;
+            // $bill['updated_user_id'] = 0;
 
 
-            $serviceItem['service_id'] = $PharmacySaleID;
-            $serviceItem['service_type'] = "Sale";
+            // $serviceItem['service_id'] = $PharmacySaleID;
+            // $serviceItem['service_type'] = "Sale";
 
             // print_r($filterBill->toArray());
             
-            if ($filterBill) {
+            // if ($filterBill) {
                 
-                foreach($filterBill->billitem as $value){
-                    if($value->service_type=='Sale'){
-                        $_bsi = BillServiceItem::find($value->id);
-                        $serviceItem['charge'] = $value->charge+$saleitemAmount;
-                        $_bsi->update($serviceItem);
-                    }
-                }
-            } else {
+            //     foreach($filterBill->billitem as $value){
+            //         if($value->service_type=='Sale'){
+            //             $_bsi = BillServiceItem::find($value->id);
+            //             $serviceItem['charge'] = $value->charge+$saleitemAmount;
+            //             $_bsi->update($serviceItem);
+            //         }
+            //     }
+            // } else {
                 
-                $billId = Bill::insertGetId($bill);
-                $serviceItem['bill_id'] = $billId;
-                $serviceItem['charge'] = $saleitemAmount;
+            //     $billId = Bill::insertGetId($bill);
+            //     $serviceItem['bill_id'] = $billId;
+            //     $serviceItem['charge'] = $saleitemAmount;
 
-                // print_r($serviceItem);
-                BillServiceItem::insert($serviceItem);
-                $bill['patient_id'] = $pharmacysale['patient_id'];
-                $bill['status'] = "1";
-                $bill['bill_date_time'] = $pharmacysale['date'];
-                $bill['created_user_id'] = Auth::user()->id;
-                $bill['updated_user_id'] = 0;
+            //     // print_r($serviceItem);
+            //     BillServiceItem::insert($serviceItem);
+            //     $bill['patient_id'] = $pharmacysale['patient_id'];
+            //     $bill['status'] = "1";
+            //     $bill['bill_date_time'] = $pharmacysale['date'];
+            //     $bill['created_user_id'] = Auth::user()->id;
+            //     $bill['updated_user_id'] = 0;
                 
-            }
-            // if($b)
-
-            Bill::insert($bill);
+            // }
+            // Bill::insert($bill);
             //return successful response
             $pharmacysale['id'] = $PharmacySaleID;
             return $this->respond('created', $pharmacysale);

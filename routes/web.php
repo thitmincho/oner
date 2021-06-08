@@ -390,6 +390,44 @@ $router->group([
     $router->post('transaction_types/{id}', 'TransactionTypeController@get');
     $router->post('transaction_types/{id}/update', 'TransactionTypeController@put');
     $router->post('transaction_types/{id}/remove', 'TransactionTypeController@remove');
+
+    $router->post('deposits', 'DepositController@all');
+    $router->post('deposits/add', 'DepositController@add');
+    $router->post('deposits/{id}', 'DepositController@get');
+    $router->post('deposits/{id}/update', 'DepositController@put');
+    $router->post('deposits/{id}/remove', 'DepositController@remove');
+    
+    $router->post('patient_service_used_records', 'PatientServiceUsedRecordController@all');
+    $router->post('patient_service_used_records/add', 'PatientServiceUsedRecordController@add');
+    $router->post('patient_service_used_records/{id}', 'PatientServiceUsedRecordController@get');
+    $router->post('patient_service_used_records/{id}/update', 'PatientServiceUsedRecordController@put');
+    $router->post('patient_service_used_records/{id}/remove', 'PatientServiceUsedRecordController@remove');
+    
+    $router->post('radiology_request_forms', 'RadiologyRequestFormController@all');
+    $router->post('radiology_request_forms/add', 'RadiologyRequestFormController@add');
+    $router->post('radiology_request_forms/{id}', 'RadiologyRequestFormController@get');
+    $router->post('radiology_request_forms/{id}/update', 'RadiologyRequestFormController@put');
+    $router->post('radiology_request_forms/{id}/remove', 'RadiologyRequestFormController@remove');
+
+    $router->post('radiology_report_forms', 'RadiologyReportFormController@all');
+    $router->post('radiology_report_forms/add', 'RadiologyReportFormController@add');
+    $router->post('radiology_report_forms/{id}', 'RadiologyReportFormController@get');
+    $router->post('radiology_report_forms/{id}/update', 'RadiologyReportFormController@put');
+    $router->post('radiology_report_forms/{id}/remove', 'RadiologyReportFormController@remove');
+
+    $router->post('ct_test_orders', 'CtTestOrderController@all');
+    $router->post('ct_test_orders/add', 'CtTestOrderController@add');
+    $router->post('ct_test_orders/{id}', 'CtTestOrderController@get');
+    $router->post('ct_test_orders/{id}/update', 'CtTestOrderController@put');
+    $router->post('ct_test_orders/{id}/remove', 'CtTestOrderController@remove');
+
+    
+    $router->post('get_open_deposit_by_patient_id/{pid}', 'DepositController@getallopen');
+    $router->post('patient_service_used_records_by_patient_id/{pid}', 'PatientServiceUsedRecordController@getallopen');
+    $router->post('investigation_requests/patient/{pid}', 'InvestigationRequestController@getbypid');
+    $router->post('ct_test_order/patient/{pid}', 'CtTestOrderController@getbypid');
+    $router->post('prescriptions/patient/{pid}', 'PrescriptionController@getbypid');
+
     // POS
     $router->post('inventory_get_all', 'InventoryController@getall');
     $router->post('expiry_items', 'InventoryController@expiryitems');

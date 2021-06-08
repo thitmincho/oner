@@ -16,8 +16,11 @@ class Bill extends Model
      *
      * @var array
      */
+    // {"patient_id":"1","total_cost":"1000","tax":"1000","discount":"1000",
+    // "deposit":[{"deposit_id":1},{"deposit_id":2}],"total_payment":"4000","bill_items":[{"patient_service_used_id":1},{"patient_service_used_id":2}]}
     protected $fillable = [
         'patient_id',
+        'counter',
         'patient_type',
         'inpatient_care_id',
         'emergency_care_id',

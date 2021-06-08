@@ -18,7 +18,7 @@ class BillController extends Controller
     // retrieve single data
     public function get($id)
     {
-        $bill = Bill::with('patient','billreceipt','billitem.serviceitem.category','payment')->find($id);
+        $bill = Bill::with('patient','billreceipt','billitem.service_used_item.category','payment')->find($id);
         if(is_null($bill)){
             return $this->respond('not_found'); 
         }   
@@ -30,15 +30,8 @@ class BillController extends Controller
         //validate incoming request 
         $this->validate($request, [
             'patient_id' => 'required',
-            'patient_type' => 'required',
-            'inpatient_care_id' => 'required',
-            'emergency_care_id' => 'required',
-            'appointment_id' => 'required',
-            'bill_date_time' => 'required',
             'discount' => 'required',
-            'tax_amount' => 'required',
-            'discharge_date_time' => 'required',
-            'status' => 'required',
+            // 'tax_amount' => 'required',
         ]);
 
         try {
@@ -58,15 +51,9 @@ class BillController extends Controller
     {
         $this->validate($request, [
             'patient_id' => 'required',
-            'patient_type' => 'required',
-            // 'inpatient_care_id' => 'required',
-            // 'emergency_care_id' => 'required',
-            // 'appointment_id' => 'required',
-            'bill_date_time' => 'required',
             'discount' => 'required',
-            'tax_amount' => 'required',
-            // 'discharge_date_time' => 'required',
-            'status' => 'required',
+            // 'tax_amount' => 'required',
+            // 'status' => 'required',
          ]);
         $bill = Bill::with('patient.open_pharmacy_sale')->find($id);
         if(is_null($bill)){

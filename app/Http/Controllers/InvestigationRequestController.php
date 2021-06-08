@@ -84,4 +84,10 @@ class InvestigationRequestController extends Controller
         InvestigationRequest::destroy($id);
         return $this->respond('removed', $investigationrequest);
     }
+    public function getbypid($pid){
+        $investigationrequests = InvestigationRequest::with('patient','requested_doctor.employee','assigned_doctor.employee','request_items.item.ranges','request_items.item.category')
+        ->where('patient_id',$pid)
+        ->get();
+        return $this->respond('done', $investigationrequests);
+    }
 }

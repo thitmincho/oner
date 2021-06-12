@@ -43,24 +43,35 @@ class PharmacyInventoryTransactionController extends Controller
         ]);
 
         try {
+            $_flag =true;
             $pinventorytransaction = $request->all();
             $pinventorytransaction['created_user_id'] = Auth::user()->id;
             $pinventorytransaction['updated_user_id'] = 0;
-            if($pinventorytransaction['transaction_type']=="in"){
+            if($pinventorytransaction['type']=="in"){
+                
                 $_inventory = Inventory::find($pinventorytransaction['inventory_id']);
                 $_inventory->balance += $pinventorytransaction['quantity'];
                 $_inventory->save();
             }
-            if($pinventorytransaction['transaction_type']=="out"){
+            if($pinventorytransaction['type']=="out"){
                 $_inventory = Inventory::find($pinventorytransaction['inventory_id']);
-                $_inventory->balance -= $pinventorytransaction['quantity'];
-                $_inventory->save();
+                if(($_inventory->balance-$pinventorytransaction['quantity'])>0){
+                    $_inventory->balance -= $pinventorytransaction['quantity'];
+                    $_inventory->save();
+                }else{
+                    // $_flag =false;
+                    return $this->respondMsg('not_valid',"cannot out item from inventory. (out of stock)");
+                    // return $this->respondMsg('not_valid', $_inventory,"cannot out item from inventory. (out of stock)");
+                }
+                
             }
+            if($_flag){
+
+                PharmacyInventoryTransaction::insert($pinventorytransaction);
             
-            PharmacyInventoryTransaction::insert($pinventorytransaction);
-            
-            //return successful response
-            return $this->respond('created', $pinventorytransaction);
+                //return successful response
+                return $this->respond('created', $pinventorytransaction);
+            }
         } catch (\Exception $e) {
             //return error message
             return $this->respond('not_valid', $e);

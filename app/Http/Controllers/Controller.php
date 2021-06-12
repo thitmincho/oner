@@ -73,4 +73,8 @@ class Controller extends BaseController
     {
     	return response()->json([ 'data'=>$data,'message'=>$this->statusCodes[$status]['message'] ], $this->statusCodes[$status]['status']);
     }
+    protected function respondMsg($status, $message)
+    {
+    	return response()->json(['message'=>$message ], $this->statusCodes[$status]['status']);
+    }
 }

@@ -27,6 +27,7 @@ class PatientController extends Controller
         //validate incoming request 
         $this->validate($request, [
            'name' => 'required',
+           'nrc' => 'required',
            'phone' => 'required',
            'age' => 'required',
         //    'status' => 'required'
@@ -57,6 +58,7 @@ class PatientController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
+            'nrc' => 'required',
             'phone' => 'required',
             'age' => 'required',
          ]);

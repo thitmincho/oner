@@ -27,7 +27,9 @@ class Bill extends Model
         'appointment_id',
         'bill_date_time',
         'discount',
-        'tax_amount',
+        'total_cost',
+        'total_payment',
+        'tax',
         'discharge_date_time',
         'status',
         'created_user_id',
@@ -35,6 +37,9 @@ class Bill extends Model
     ];
     public function patient(){
         return $this->hasOne('App\Patient','id','patient_id');
+    }
+    public function billitempsu(){
+        return $this->hasMany('App\BillItem','bill_id','id');
     }
     public function billreceipt(){
         return $this->hasMany('App\BillReceipt','bill_id','id');

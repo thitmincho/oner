@@ -27,6 +27,7 @@ class Inventory extends Model
         'selling_price',
         'batch_number',
         'expiry_date',
+        'resignment_flat',
         'description'
     ];
 

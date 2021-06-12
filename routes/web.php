@@ -329,6 +329,12 @@ $router->group([
     $router->post('bill_service_receipt/{id}', 'BillServiceReceiptController@get');
     $router->post('bill_service_receipt/{id}/update', 'BillServiceReceiptController@put');
     $router->post('bill_service_receipt/{id}/remove', 'BillServiceReceiptController@remove');
+
+    $router->post('billing_adjustments', 'BillAdjustmentController@all');
+    $router->post('billing_adjustments/add', 'BillAdjustmentController@add');
+    $router->post('billing_adjustments/{id}', 'BillAdjustmentController@get');
+    $router->post('billing_adjustments/{id}/update', 'BillAdjustmentController@put');
+    $router->post('billing_adjustments/{id}/remove', 'BillAdjustmentController@remove');
    
     $router->post('payments', 'PaymentController@all');
     $router->post('payments/add', 'PaymentController@add');
@@ -420,7 +426,6 @@ $router->group([
     $router->post('ct_test_orders/{id}', 'CtTestOrderController@get');
     $router->post('ct_test_orders/{id}/update', 'CtTestOrderController@put');
     $router->post('ct_test_orders/{id}/remove', 'CtTestOrderController@remove');
-
     
     $router->post('get_open_deposit_by_patient_id/{pid}', 'DepositController@getallopen');
     $router->post('patient_service_used_records_by_patient_id/{pid}', 'PatientServiceUsedRecordController@getallopen');

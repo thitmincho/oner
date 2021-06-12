@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Bill;
+use App\BillItem;
 use App\BillReceipt;
 use App\BillServiceItem;
+use App\PatientServiceUsedRecord;
 use App\PharmacySale;
 use Illuminate\Support\Facades\Auth;
 class BillController extends Controller
@@ -18,7 +20,7 @@ class BillController extends Controller
     // retrieve single data
     public function get($id)
     {
-        $bill = Bill::with('patient','billreceipt','billitem.service_used_item.category','payment')->find($id);
+        $bill = Bill::with('patient','billreceipt','billitempsu.patient_service_used.service_item','billitem.service_used_item.category','payment')->find($id);
         if(is_null($bill)){
             return $this->respond('not_found'); 
         }   
@@ -31,16 +33,48 @@ class BillController extends Controller
         $this->validate($request, [
             'patient_id' => 'required',
             'discount' => 'required',
-            // 'tax_amount' => 'required',
+            'status' => 'required',
         ]);
 
         try {
             $bill = $request->all();
+            // $billitems = $bill['bill_items'];
+            // unset($bill['bill_items']);
+            // unset($bill['deposit']);
             $bill['created_user_id'] = Auth::user()->id;
             $bill['updated_user_id'] = 0;
-            Bill::insert($bill);
+
+            $billID = Bill::insertGetId($bill);
+
+            
+            $billitems = PatientServiceUsedRecord::where('patient_id',$bill['patient_id'])
+            ->where('status','open')
+            ->get();
+            $billitemsData = [];
+            foreach ($billitems as $value) {
+                
+                if($bill['status']==0){
+                    $billitemsData_value['bill_id'] = $billID;
+                    $billitemsData_value['patient_service_used_id'] = $value->id;
+                    $billitemsData[] = $billitemsData_value;
+                }
+
+                $patient_service_used_id = PatientServiceUsedRecord::where('patient_id',$bill['patient_id'])
+                ->where('service_item_id',$value->id)
+                ->first();
+
+                if (!is_null($patient_service_used_id)) {
+
+                    $patient_service_used_id->status = 'close';
+                    $patient_service_used_id->update();
+                }
+                
+            }
+            BillItem::insert($bill);
+            
+            
             //return successful response
-            return $this->respond('created', $bill);
+            return $this->respond('created', $billitemsData);
         } catch (\Exception $e) {
             //return error message
             return $this->respond('not_valid', $e);
@@ -53,7 +87,7 @@ class BillController extends Controller
             'patient_id' => 'required',
             'discount' => 'required',
             // 'tax_amount' => 'required',
-            // 'status' => 'required',
+            'status' => 'required',
          ]);
         $bill = Bill::with('patient.open_pharmacy_sale')->find($id);
         if(is_null($bill)){

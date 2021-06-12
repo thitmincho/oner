@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Bill;
 use App\BillServiceItem;
+use App\Inventory;
+use App\PharmacyInventoryTransaction;
 use Illuminate\Http\Request;
 use App\PharmacySale;
 use App\PharmacySaleItem;
@@ -115,20 +117,54 @@ class PharmacySaleController extends Controller
     {
         $requestData = $request->all();
         $this->validate($request, [
-            'date' => 'required',
+            // 'date' => 'required',
             'patient_id' => 'required',
             // 'total_amount' => 'required',
             // 'discount' => 'required',
             'remark' => 'required',
             'status' => 'required',
         ]);
+
+        $psdetail = $requestData['items'];
+        unset($requestData['items']);
+        
+
         $pharmacysale = PharmacySale::find($id);
         if (is_null($pharmacysale)) {
             return $this->respond('not_found');
         }
+
+        if($requestData['status']=='0'){
+            $inventorytransaction = [];
+            foreach ($psdetail as $value) {
+                $inventorydata = Inventory::where('id',$value['inventory_id'])->where('relation_id',$value['pharmacy_item_id'])->first();
+                if(is_null($inventorydata)){
+                    return $this->respond('not_found');
+                }
+                $inventorytransaction_value['inventory_id'] = $value['inventory_id'];
+                $inventorytransaction_value['relation_id'] = $inventorydata['relation_id'];
+                $inventorytransaction_value['relation_type'] = 'pharmacy_item';
+                $inventorytransaction_value['transaction_type'] = 'sale_order';
+                $inventorytransaction_value['type'] = 'out';
+                $inventorytransaction_value['quantity'] = $value['quantity'];
+                $inventorytransaction_value['unit'] = $inventorydata['unit'];
+                $inventorytransaction_value['moving_average_price'] = $inventorydata['selling_price'];
+                $inventorytransaction_value['purchasing_price'] = $inventorydata['purchasing_price'];
+                $inventorytransaction_value['selling_price'] = $inventorydata['selling_price'];
+                $inventorytransaction_value['opening_balance'] = $inventorydata['balance'];
+                $inventorytransaction_value['closing_balance'] = $inventorydata['balance']-$value['quantity'];
+                $inventorytransaction_value['note'] = $inventorydata['note'];
+                $inventorytransaction_value['created_user_id'] = Auth::user()->id;
+                $inventorytransaction_value['updated_user_id'] = 0;
+
+                $inventorytransaction[] = $inventorytransaction_value;
+            }
+            PharmacyInventoryTransaction::insert($inventorytransaction);
+        }
+
         $requestData['updated_user_id'] = Auth::user()->id;
         $pharmacysale->update($requestData);
-        return $this->respond('done', $pharmacysale);
+        return $this->respond('done', $requestData);
     }
     // remove single row
     public function remove($id)

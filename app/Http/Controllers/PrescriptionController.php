@@ -33,7 +33,7 @@ class PrescriptionController extends Controller
         //    'quantity' => 'required',   
         // ]);
         $this->validate($request, [
-            'medical_record_id' => 'required',
+            // 'medical_record_id' => 'required',
             'patient_id' => 'required',
             'doctor_id' => 'required',
         ]);
@@ -72,7 +72,7 @@ class PrescriptionController extends Controller
         //     'quantity' => 'required',
         //  ]);
         $this->validate($request, [
-            'medical_record_id' => 'required',
+            // 'medical_record_id' => 'required',
             'patient_id' => 'required',
             'doctor_id' => 'required',
         ]);

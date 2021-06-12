@@ -18,10 +18,12 @@ class Patient extends Model
      */
     protected $fillable = [
         'name',
+        'nrc',
         'phone',
         'age',
         'date_of_birth',
         'address',
+        
         // 'township',
         // 'region',
         'blood_group',

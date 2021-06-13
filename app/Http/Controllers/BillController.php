@@ -70,11 +70,11 @@ class BillController extends Controller
                 }
                 
             }
-            BillItem::insert($bill);
+            BillItem::insert($billitemsData);
             
             
             //return successful response
-            return $this->respond('created', $billitemsData);
+            return $this->respond('created', $bill);
         } catch (\Exception $e) {
             //return error message
             return $this->respond('not_valid', $e);

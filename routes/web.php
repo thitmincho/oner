@@ -427,6 +427,24 @@ $router->group([
     $router->post('ct_test_orders/{id}/update', 'CtTestOrderController@put');
     $router->post('ct_test_orders/{id}/remove', 'CtTestOrderController@remove');
     
+    $router->post('inpatient_records', 'InPatientRecordController@all');
+    $router->post('inpatient_records/add', 'InPatientRecordController@add');
+    $router->post('inpatient_records/{id}', 'InPatientRecordController@get');
+    $router->post('inpatient_records/{id}/update', 'InPatientRecordController@put');
+    $router->post('inpatient_records/{id}/remove', 'InPatientRecordController@remove');
+
+    $router->post('inpatient_beds', 'InPatientBedController@all');
+    $router->post('inpatient_beds/add', 'InPatientBedController@add');
+    $router->post('inpatient_beds/{id}', 'InPatientBedController@get');
+    $router->post('inpatient_beds/{id}/update', 'InPatientBedController@put');
+    $router->post('inpatient_beds/{id}/remove', 'InPatientBedController@remove');
+
+    $router->post('inpatient_rooms', 'InPatientRoomController@all');
+    $router->post('inpatient_rooms/add', 'InPatientRoomController@add');
+    $router->post('inpatient_rooms/{id}', 'InPatientRoomController@get');
+    $router->post('inpatient_rooms/{id}/update', 'InPatientRoomController@put');
+    $router->post('inpatient_rooms/{id}/remove', 'InPatientRoomController@remove');
+    
     $router->post('get_open_deposit_by_patient_id/{pid}', 'DepositController@getallopen');
     $router->post('patient_service_used_records_by_patient_id/{pid}', 'PatientServiceUsedRecordController@getallopen');
     $router->post('investigation_requests/patient/{pid}', 'InvestigationRequestController@getbypid');

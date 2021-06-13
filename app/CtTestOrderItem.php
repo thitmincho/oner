@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CtTestOrder extends Model 
+class CtTestOrderItem extends Model 
 {    
-    protected $table = 'ct_test_orders';
+    protected $table = 'ct_test_order_items';
     const CREATED_AT = 'created_time';
     const UPDATED_AT = 'updated_time';
     
@@ -18,14 +18,10 @@ class CtTestOrder extends Model
 
     protected $fillable = [
         
-        'patient_id',
-        'doctor_id',
-        'request_form',
-        'consent_form',
-        'request_form_id',
-        'report_form_id',
+        'ct_test_order_id',
+        'investigation_item_id',
+        'result',
         'status',
-        'consumption',
         'created_user_id',
         'updated_user_id'
         
@@ -36,8 +32,5 @@ class CtTestOrder extends Model
     }
     public function doctor(){
         return $this->hasOne('App\Doctor','id','doctor_id');
-    }
-    public function ctto_items(){
-        return $this->hasMany('App\CtTestOrderItem','ct_test_order_id','id');
     }
 }

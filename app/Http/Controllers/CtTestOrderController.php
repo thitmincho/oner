@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CtTestOrder;
-use App\InvestigationItem;
+use App\CtTestOrderItem;
 use Illuminate\Support\Facades\Auth;
 
 class CtTestOrderController extends Controller
@@ -11,13 +11,13 @@ class CtTestOrderController extends Controller
     // get all data
     public function all()
     {
-        $ct_test_orders = CtTestOrder::all();
+        $ct_test_orders = CtTestOrder::with('patient','doctor','ctto_items')->get();
         return $this->respond('done', $ct_test_orders);
     }
     // retrieve single data
     public function get($id)
     {
-        $ct_test_order = CtTestOrder::find($id);
+        $ct_test_order = CtTestOrder::with('patient','doctor','ctto_items')->find($id);
         if(is_null($ct_test_order)){
             return $this->respond('not_found'); 
         }   
@@ -33,8 +33,8 @@ class CtTestOrderController extends Controller
 
         try {
             $ct_test_order = $request->all();
-            // $investigation_items = $ct_test_order['items'];
-            // unset($ct_test_order['items']);
+            $investigation_items = $ct_test_order['items'];
+            unset($ct_test_order['items']);
             $request_form_uploading = $this->uploadImage($request,"request_form","CtTestOrder");
             if($request_form_uploading!=false){                
                 $ct_test_order['request_form'] = $request_form_uploading;
@@ -50,16 +50,16 @@ class CtTestOrderController extends Controller
 
             $CtTestOrderID = CtTestOrder::insertGetId($ct_test_order);
 
-            // $investigation_items_details = [];
-            // foreach ($investigation_items as $value) {
-            //     $value['investigation_item_id'] = $CtTestOrderID;
-            //     $investigation_item_uploading = $this->uploadImage($request,"consent_form","CtTestOrder_IIResult");
-            //     if($investigation_item_uploading!=false){
-            //         $value['result'] = $investigation_item_uploading;
-            //     }
-            //     $investigation_items_details[] = $value;
-            // }
-            // InvestigationItem::insert($investigation_items_details);
+            $investigation_items_details = [];
+            foreach ($investigation_items as $value) {
+                $value['investigation_item_id'] = $CtTestOrderID;
+                $investigation_item_uploading = $this->uploadImage($request,"consent_form","CtTestOrder_IIResult");
+                if($investigation_item_uploading!=false){
+                    $value['result'] = $investigation_item_uploading;
+                }
+                $investigation_items_details[] = $value;
+            }
+            // CtTestOrderItem::insert($investigation_items_details);
             //return successful response
             return $this->respond('created', $ct_test_order);
         } catch (\Exception $e) {

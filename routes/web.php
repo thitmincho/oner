@@ -427,6 +427,12 @@ $router->group([
     $router->post('ct_test_orders/{id}/update', 'CtTestOrderController@put');
     $router->post('ct_test_orders/{id}/remove', 'CtTestOrderController@remove');
     
+    $router->post('ct_test_order_items', 'CtTestOrderItemController@all');
+    $router->post('ct_test_order_items/add', 'CtTestOrderItemController@add');
+    $router->post('ct_test_order_items/{id}', 'CtTestOrderItemController@get');
+    $router->post('ct_test_order_items/{id}/update', 'CtTestOrderItemController@put');
+    $router->post('ct_test_order_items/{id}/remove', 'CtTestOrderItemController@remove');
+
     $router->post('inpatient_records', 'InPatientRecordController@all');
     $router->post('inpatient_records/add', 'InPatientRecordController@add');
     $router->post('inpatient_records/{id}', 'InPatientRecordController@get');

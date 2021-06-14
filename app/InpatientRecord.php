@@ -31,13 +31,13 @@ class InpatientRecord extends Model
         return $this->hasOne('App\Patient','id','patient_id');
     }
     public function bed(){
-        return $this->hasOne('App\InpatientBeds','id','bed_id');
+        return $this->hasOne('App\InpatientBed','id','bed_id');
     }
-    public function admit_form(){
-        return $this->hasMany('App\BillReceipt','bill_id','id');
-    }
-    public function discharge_form(){
-        return $this->hasMany('App\BillServiceItem','bill_id','id');
-    }
+    // public function admit_form(){
+    //     return $this->hasMany('App\BillReceipt','bill_id','id');
+    // }
+    // public function discharge_form(){
+    //     return $this->hasMany('App\BillServiceItem','bill_id','id');
+    // }
 
 }

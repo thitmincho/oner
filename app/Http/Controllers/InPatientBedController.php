@@ -11,13 +11,13 @@ class InPatientBedController extends Controller
     // get all data
     public function all()
     {
-        $inpatientbeds = InpatientBed::all();
+        $inpatientbeds = InpatientBed::with('room')->get();
         return $this->respond('done', $inpatientbeds);
     }
     // retrieve single data
     public function get($id)
     {
-        $inpatientbed = InpatientBed::find($id);
+        $inpatientbed = InpatientBed::with('room')->find($id);
         if(is_null($inpatientbed)){
             return $this->respond('not_found'); 
         }   

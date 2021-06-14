@@ -11,13 +11,23 @@ class CtTestOrderController extends Controller
     // get all data
     public function all()
     {
-        $ct_test_orders = CtTestOrder::with('patient','doctor','ctto_items')->get();
+        $ct_test_orders = CtTestOrder::with('patient','doctor',
+        'ctto_items.investigation_item',
+        'ctto_items.investigation_item.category',
+        'ctto_items.investigation_item.department',
+        'ctto_items.investigation_item.ranges',
+        'ctto_items.investigation_item.service_item')->get();
         return $this->respond('done', $ct_test_orders);
     }
     // retrieve single data
     public function get($id)
     {
-        $ct_test_order = CtTestOrder::with('patient','doctor','ctto_items')->find($id);
+        $ct_test_order = CtTestOrder::with('patient','doctor',
+        'ctto_items.investigation_item',
+        'ctto_items.investigation_item.category',
+        'ctto_items.investigation_item.department',
+        'ctto_items.investigation_item.ranges',
+        'ctto_items.investigation_item.service_item')->find($id);
         if(is_null($ct_test_order)){
             return $this->respond('not_found'); 
         }   
@@ -52,14 +62,16 @@ class CtTestOrderController extends Controller
 
             $investigation_items_details = [];
             foreach ($investigation_items as $value) {
-                $value['investigation_item_id'] = $CtTestOrderID;
+                $value['ct_test_order_id'] = $CtTestOrderID;
                 $investigation_item_uploading = $this->uploadImage($request,"consent_form","CtTestOrder_IIResult");
                 if($investigation_item_uploading!=false){
                     $value['result'] = $investigation_item_uploading;
                 }
+                $value['created_user_id'] = Auth::user()->id;
+                $value['updated_user_id'] = 0;
                 $investigation_items_details[] = $value;
             }
-            // CtTestOrderItem::insert($investigation_items_details);
+            CtTestOrderItem::insert($investigation_items_details);
             //return successful response
             return $this->respond('created', $ct_test_order);
         } catch (\Exception $e) {

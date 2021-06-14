@@ -20,8 +20,13 @@ class InpatientBed extends Model
         'bed_name',
         'room_id',
         'type', 
+        'bed_charge',
         'created_user_id',
         'updated_user_id',
     ];
+
+    public function room(){
+        return $this->hasOne('App\InpatientRoom','id','room_id');
+    }
 
 }

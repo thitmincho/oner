@@ -27,10 +27,7 @@ class CtTestOrderItem extends Model
         
     ];
 
-    public function patient(){
-        return $this->hasOne('App\Patient','id','patient_id');
-    }
-    public function doctor(){
-        return $this->hasOne('App\Doctor','id','doctor_id');
+    public function investigation_item(){
+        return $this->hasOne('App\InvestigationItem','id','investigation_item_id');
     }
 }

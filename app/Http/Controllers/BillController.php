@@ -45,7 +45,8 @@ class BillController extends Controller
             $bill['updated_user_id'] = 0;
 
             $billID = Bill::insertGetId($bill);
-
+            // $billID = "test";
+            $bill['id'] = $billID;
             
             $billitems = PatientServiceUsedRecord::where('patient_id',$bill['patient_id'])
             ->where('status','open')
@@ -59,10 +60,15 @@ class BillController extends Controller
                     $billitemsData[] = $billitemsData_value;
                 }
 
-                $patient_service_used_id = PatientServiceUsedRecord::where('patient_id',$bill['patient_id'])
-                ->where('service_item_id',$value->id)
+                // $patient_service_used_id = PatientServiceUsedRecord::where('patient_id',$bill['patient_id'])
+                // ->where('service_item_id',$value->service_item_id)
+                // ->first();
+                $patient_service_used_id = PatientServiceUsedRecord::where('id',$value->id)
                 ->first();
 
+                // print_r($patient_service_used_id->toArray());
+                // echo $bill['patient_id']."-".$value->service_item_id;
+                // print_r($patient_service_used_id);
                 if (!is_null($patient_service_used_id)) {
 
                     $patient_service_used_id->status = 'close';
@@ -73,7 +79,7 @@ class BillController extends Controller
             BillItem::insert($billitemsData);
             
             
-            //return successful response
+            // //return successful response
             return $this->respond('created', $bill);
         } catch (\Exception $e) {
             //return error message

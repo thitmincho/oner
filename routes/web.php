@@ -12,20 +12,20 @@
 */
 
 $router->get('/', function () use ($router) {
-    // return $router->app->version();
-    return json_encode([
-        'pharmacy_item_id'=> 'required',
-        'transaction_type'=> 'required',
-        'quantity'=> 'required',
-        'moving_average_price'=> 'required',
-        'purchasing_price'=> 'required',
-        'selling_price'=> 'required',
-        'opening_balance'=> 'required',
-        'closing_balance'=> 'required',
-        'expired_date'=> 'required',
-        'note'=> 'required',
+    return $router->app->version();
+    // return json_encode([
+    //     'pharmacy_item_id'=> 'required',
+    //     'transaction_type'=> 'required',
+    //     'quantity'=> 'required',
+    //     'moving_average_price'=> 'required',
+    //     'purchasing_price'=> 'required',
+    //     'selling_price'=> 'required',
+    //     'opening_balance'=> 'required',
+    //     'closing_balance'=> 'required',
+    //     'expired_date'=> 'required',
+    //     'note'=> 'required',
         
-    ]);
+    // ]);
 });
 // API route group
 $router->group([
